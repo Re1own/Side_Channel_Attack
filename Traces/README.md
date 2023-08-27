@@ -1,4 +1,4 @@
-## **how to use npy?**
+## **How to use npy?**
 
 `import numpy as np`
 
@@ -9,4 +9,10 @@
 `traces = np.load('./traces.npy')`
 
 
+
+## Hardware
+
+**Chipwhisperer Husky CW312**
+
+![Chipwhisperer Husky CW312](https://re1own.github.io/assets/img/hardware/Chipwhisperer_Husky_CW312.jpg)
 
