@@ -14,4 +14,7 @@ You can also refer to my study
 
 ## Belief propagation attack
 
-My board is CW312
+Updating....
+
+
+
