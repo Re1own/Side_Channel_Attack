@@ -14,5 +14,5 @@
 
 **Chipwhisperer Husky CW312**
 
-![Chipwhisperer Husky CW312](https://re1own.github.io/assets/img/Hardware/Chipwhisperer_Husky_CW312.jpg)
+<img src="https://re1own.github.io/assets/img/Hardware/Chipwhisperer_Husky_CW312.jpg" alt="Chipwhisperer Husky CW312" style="zoom:50%;" />
 
