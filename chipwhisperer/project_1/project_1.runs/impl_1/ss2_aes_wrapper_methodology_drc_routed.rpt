@@ -1,0 +1,97 @@
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon Aug 28 17:36:29 2023
+| Host         : DESKTOP-40BQ1RA running 64-bit major release  (build 9200)
+| Command      : report_methodology -file ss2_aes_wrapper_methodology_drc_routed.rpt -pb ss2_aes_wrapper_methodology_drc_routed.pb -rpx ss2_aes_wrapper_methodology_drc_routed.rpx
+| Design       : ss2_aes_wrapper
+| Device       : xc7a35tcsg324-1
+| Speed File   : -1
+| Design State : Fully Routed
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 9
++-----------+----------+------------------------------------------+------------+
+| Rule      | Severity | Description                              | Violations |
++-----------+----------+------------------------------------------+------------+
+| TIMING-18 | Warning  | Missing input or output delay            | 1          |
+| XDCH-2    | Warning  | Same min and max delay values on IO port | 8          |
++-----------+----------+------------------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+TIMING-18#1 Warning
+Missing input or output delay  
+An output delay is missing on clkout relative to clock(s) clk
+Related violations: <none>
+
+XDCH-2#1 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'resetn' relative to clock clk for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock clk 0.000 [get_ports resetn]
+F:/Myhub/Side_Channel_Attack/chipwhisperer/fpga/cw312/src/xc7a35/vivado/cw312_ss2.xdc (Line: 24)
+Related violations: <none>
+
+XDCH-2#2 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'rxd' relative to clock clk for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock clk 0.000 [get_ports rxd]
+F:/Myhub/Side_Channel_Attack/chipwhisperer/fpga/cw312/src/xc7a35/vivado/cw312_ss2.xdc (Line: 25)
+Related violations: <none>
+
+XDCH-2#3 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'io3' relative to clock clk for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock clk 0.000 [get_ports io3]
+F:/Myhub/Side_Channel_Attack/chipwhisperer/fpga/cw312/src/xc7a35/vivado/cw312_ss2.xdc (Line: 32)
+Related violations: <none>
+
+XDCH-2#4 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'io4' relative to clock clk for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock clk 0.000 [get_ports io4]
+F:/Myhub/Side_Channel_Attack/chipwhisperer/fpga/cw312/src/xc7a35/vivado/cw312_ss2.xdc (Line: 33)
+Related violations: <none>
+
+XDCH-2#5 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'led1' relative to clock clk for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock clk 0.000 [get_ports led*]
+F:/Myhub/Side_Channel_Attack/chipwhisperer/fpga/cw312/src/xc7a35/vivado/cw312_ss2.xdc (Line: 30)
+Related violations: <none>
+
+XDCH-2#6 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'led2' relative to clock clk for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock clk 0.000 [get_ports led*]
+F:/Myhub/Side_Channel_Attack/chipwhisperer/fpga/cw312/src/xc7a35/vivado/cw312_ss2.xdc (Line: 30)
+Related violations: <none>
+
+XDCH-2#7 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'led3' relative to clock clk for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock clk 0.000 [get_ports led*]
+F:/Myhub/Side_Channel_Attack/chipwhisperer/fpga/cw312/src/xc7a35/vivado/cw312_ss2.xdc (Line: 30)
+Related violations: <none>
+
+XDCH-2#8 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'txd' relative to clock clk for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock clk 0.000 [get_ports txd]
+F:/Myhub/Side_Channel_Attack/chipwhisperer/fpga/cw312/src/xc7a35/vivado/cw312_ss2.xdc (Line: 31)
+Related violations: <none>
+
+

@@ -1,0 +1,35 @@
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon Aug 28 17:36:07 2023
+| Host         : DESKTOP-40BQ1RA running 64-bit major release  (build 9200)
+| Command      : report_drc -file ss2_aes_wrapper_drc_opted.rpt -pb ss2_aes_wrapper_drc_opted.pb -rpx ss2_aes_wrapper_drc_opted.rpx
+| Design       : ss2_aes_wrapper
+| Device       : xc7a35tcsg324-1
+| Speed File   : -1
+| Design State : Synthesized
+------------------------------------------------------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max violations: <unlimited>
+             Violations found: 0
++------+----------+-------------+------------+
+| Rule | Severity | Description | Violations |
++------+----------+-------------+------------+
++------+----------+-------------+------------+
+
+2. REPORT DETAILS
+-----------------
+
