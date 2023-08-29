@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_1" LaunchPart="xc7a35tcsg324-1" LaunchTime="1693129248">
+  <File Type="ROUTE-PWR" Name="ss2_aes_wrapper_power_routed.rpt"/>
+  <File Type="PA-TCL" Name="ss2_aes_wrapper.tcl"/>
+  <File Type="ROUTE-PWR-SUM" Name="ss2_aes_wrapper_power_summary_routed.pb"/>
+  <File Type="REPORTS-TCL" Name="ss2_aes_wrapper_reports.tcl"/>
+  <File Type="BITSTR-MSK" Name="ss2_aes_wrapper.msk"/>
+  <File Type="ROUTE-CLK" Name="ss2_aes_wrapper_clock_utilization_routed.rpt"/>
+  <File Type="RDI-RDI" Name="ss2_aes_wrapper.vdi"/>
+  <File Type="BG-BIT" Name="ss2_aes_wrapper.bit"/>
+  <File Type="BG-DRC" Name="ss2_aes_wrapper.drc"/>
+  <File Type="BG-BGN" Name="ss2_aes_wrapper.bgn"/>
+  <File Type="BG-BIN" Name="ss2_aes_wrapper.bin"/>
+  <File Type="BITSTR-RBT" Name="ss2_aes_wrapper.rbt"/>
+  <File Type="BITSTR-NKY" Name="ss2_aes_wrapper.nky"/>
+  <File Type="BITSTR-BMM" Name="ss2_aes_wrapper_bd.bmm"/>
+  <File Type="BITSTR-MMI" Name="ss2_aes_wrapper.mmi"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="ss2_aes_wrapper_methodology_drc_routed.rpt"/>
+  <File Type="BITSTR-SYSDEF" Name="ss2_aes_wrapper.sysdef"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="ss2_aes_wrapper.ltx"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="OPT-DRC" Name="ss2_aes_wrapper_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="ss2_aes_wrapper.hwdef"/>
+  <File Type="PLACE-IO" Name="ss2_aes_wrapper_io_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="ss2_aes_wrapper_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="ss2_aes_wrapper_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="ss2_aes_wrapper_control_sets_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="ss2_aes_wrapper_incremental_reuse_pre_placed.rpt"/>
+  <File Type="ROUTE-DRC" Name="ss2_aes_wrapper_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="ss2_aes_wrapper_drc_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="ss2_aes_wrapper_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="ss2_aes_wrapper_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="ss2_aes_wrapper_route_status.pb"/>
+  <File Type="ROUTE-DCP" Name="ss2_aes_wrapper_routed.dcp"/>
+  <File Type="ROUTE-ERROR-DCP" Name="ss2_aes_wrapper_routed_error.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="ss2_aes_wrapper_routed_bb.dcp"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="ss2_aes_wrapper_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="ss2_aes_wrapper_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="ss2_aes_wrapper_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-BUS-SKEW" Name="ss2_aes_wrapper_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="ss2_aes_wrapper_bus_skew_routed.pb"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="ss2_aes_wrapper_bus_skew_routed.rpx"/>
+  <File Type="OPT-DCP" Name="ss2_aes_wrapper_opt.dcp"/>
+  <File Type="PLACE-DCP" Name="ss2_aes_wrapper_placed.dcp"/>
+  <File Type="PWROPT-DCP" Name="ss2_aes_wrapper_pwropt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="ss2_aes_wrapper_postplace_pwropt.dcp"/>
+  <File Type="PHYSOPT-DCP" Name="ss2_aes_wrapper_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="ss2_aes_wrapper_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="ss2_aes_wrapper_postroute_physopt_bb.dcp"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="ss2_aes_wrapper_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-DRC-RPX" Name="ss2_aes_wrapper_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="ss2_aes_wrapper_methodology_drc_routed.rpx"/>
+  <File Type="PDI-FILE" Name="ss2_aes_wrapper.pdi"/>
+  <File Type="RCFI_FILE" Name="ss2_aes_wrapper.rcfi"/>
+  <File Type="CFI_FILE" Name="ss2_aes_wrapper.cfi"/>
+  <File Type="RNPI_FILE" Name="ss2_aes_wrapper.rnpi"/>
+  <File Type="NPI_FILE" Name="ss2_aes_wrapper.npi"/>
+  <File Type="RBD_FILE" Name="ss2_aes_wrapper.rbd"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/imports/victims/cw305_artixtarget/fpga/cryptosrc/aes_googlevault/aes_core.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/chipwhisperer/hardware/victims/cw305_artixtarget/fpga/cryptosrc/aes_googlevault/aes_core.v"/>
+        <Attr Name="ImportTime" Val="1693129245"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/victims/cw305_artixtarget/fpga/cryptosrc/aes_googlevault/aes_ks.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/chipwhisperer/hardware/victims/cw305_artixtarget/fpga/cryptosrc/aes_googlevault/aes_ks.v"/>
+        <Attr Name="ImportTime" Val="1692921325"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/victims/cw305_artixtarget/fpga/cryptosrc/aes_newae/aes_sbox_lut.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/chipwhisperer/hardware/victims/cw305_artixtarget/fpga/cryptosrc/aes_newae/aes_sbox_lut.v"/>
+        <Attr Name="ImportTime" Val="1692921325"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/victims/cw305_artixtarget/fpga/common/cdc_pulse.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/chipwhisperer/hardware/victims/cw305_artixtarget/fpga/common/cdc_pulse.v"/>
+        <Attr Name="ImportTime" Val="1692921325"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/victims/cw305_artixtarget/fpga/common/clocks.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/chipwhisperer/hardware/victims/cw305_artixtarget/fpga/common/clocks.v"/>
+        <Attr Name="ImportTime" Val="1692921325"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/victims/cw308_ufo_target/xc7a35/hdl/crc_ss2.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/chipwhisperer/hardware/victims/cw308_ufo_target/xc7a35/hdl/crc_ss2.v"/>
+        <Attr Name="ImportTime" Val="1690225286"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/victims/cw305_artixtarget/fpga/common/cw305_defines.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/chipwhisperer/hardware/victims/cw305_artixtarget/fpga/common/cw305_defines.v"/>
+        <Attr Name="ImportTime" Val="1692921325"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/victims/cw305_artixtarget/fpga/common/cw305_reg_aes.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/chipwhisperer/hardware/victims/cw305_artixtarget/fpga/common/cw305_reg_aes.v"/>
+        <Attr Name="ImportTime" Val="1692921325"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/victims/cw305_artixtarget/fpga/common/cw305_top.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/chipwhisperer/hardware/victims/cw305_artixtarget/fpga/common/cw305_top.v"/>
+        <Attr Name="ImportTime" Val="1692921325"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/victims/cw305_artixtarget/fpga/common/cw305_usb_reg_fe.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/chipwhisperer/hardware/victims/cw305_artixtarget/fpga/common/cw305_usb_reg_fe.v"/>
+        <Attr Name="ImportTime" Val="1692921325"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/victims/cw308_ufo_target/xc7a35/hdl/fifo_sync.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/chipwhisperer/hardware/victims/cw308_ufo_target/xc7a35/hdl/fifo_sync.v"/>
+        <Attr Name="ImportTime" Val="1690225286"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/victims/cw308_ufo_target/xc7a35/hdl/ss2.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/chipwhisperer/hardware/victims/cw308_ufo_target/xc7a35/hdl/ss2.v"/>
+        <Attr Name="ImportTime" Val="1690225286"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/victims/cw308_ufo_target/xc7a35/hdl/uart_core.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/chipwhisperer/hardware/victims/cw308_ufo_target/xc7a35/hdl/uart_core.v"/>
+        <Attr Name="ImportTime" Val="1690225286"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/victims/cw308_ufo_target/xc7a35/hdl/ss2_aes_wrapper.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/chipwhisperer/hardware/victims/cw308_ufo_target/xc7a35/hdl/ss2_aes_wrapper.v"/>
+        <Attr Name="ImportTime" Val="1692921328"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../../github/chipwhisperer/hardware/victims/cw308_ufo_target/xc7a35/fpga-common/hdl/crc_ss2.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../../github/chipwhisperer/hardware/victims/cw308_ufo_target/xc7a35/fpga-common/hdl/fifo_sync.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../../github/chipwhisperer/hardware/victims/cw308_ufo_target/xc7a35/fpga-common/hdl/ss2.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../../github/chipwhisperer/hardware/victims/cw308_ufo_target/xc7a35/fpga-common/hdl/uart_core.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/victims/cw305_artixtarget/fpga/cryptosrc/aes_googlevault/aes_sbox.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/chipwhisperer/hardware/victims/cw305_artixtarget/fpga/cryptosrc/aes_googlevault/aes_sbox.v"/>
+        <Attr Name="ImportTime" Val="1692921325"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="ss2_aes_wrapper"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/imports/vivado/cw312_ss2.xdc">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/chipwhisperer/hardware/victims/cw308_ufo_target/xc7a35/vivado/cw312_ss2.xdc"/>
+        <Attr Name="ImportTime" Val="1692921328"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
+    <Step Id="init_design"/>
+    <Step Id="opt_design"/>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design"/>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design"/>
+    <Step Id="route_design"/>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream"/>
+  </Strategy>
+</GenRun>
