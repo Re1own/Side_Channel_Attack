@@ -1,0 +1,438 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Mon Aug 28 20:38:07 2023
+# Process ID: 10880
+# Current directory: E:/side_channel_attack/Chipwhisperer/project_1/project_1.runs/synth_1
+# Command line: vivado.exe -log ss2_aes_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ss2_aes_wrapper.tcl
+# Log file: E:/side_channel_attack/Chipwhisperer/project_1/project_1.runs/synth_1/ss2_aes_wrapper.vds
+# Journal file: E:/side_channel_attack/Chipwhisperer/project_1/project_1.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source ss2_aes_wrapper.tcl -notrace
+Command: synth_design -top ss2_aes_wrapper -part xc7a35tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tcsg324-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 48712
+WARNING: [Synth 8-6901] identifier 'pS_TX_IDLE' is used before its declaration [E:/side_channel_attack/Chipwhisperer/project_1/project_1.srcs/sources_1/imports/hdl/ss2.v:102]
+WARNING: [Synth 8-6901] identifier 'clear_rx_errors' is used before its declaration [E:/side_channel_attack/Chipwhisperer/project_1/project_1.srcs/sources_1/imports/hdl/ss2.v:165]
+WARNING: [Synth 8-6901] identifier 'clear_rx_errors' is used before its declaration [E:/side_channel_attack/Chipwhisperer/project_1/project_1.srcs/sources_1/imports/hdl/ss2.v:187]
+WARNING: [Synth 8-6901] identifier 'erx_ctrl_reg' is used before its declaration [E:/side_channel_attack/Chipwhisperer/project_1/project_1.srcs/sources_1/imports/hdl/uart_core.v:105]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:00 ; elapsed = 00:00:02 . Memory (MB): peak = 1222.051 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'ss2_aes_wrapper' [E:/side_channel_attack/Chipwhisperer/project_1/project_1.srcs/sources_1/imports/hdl/ss2_aes_wrapper.v:25]
+INFO: [Synth 8-6157] synthesizing module 'ss2' [E:/side_channel_attack/Chipwhisperer/project_1/project_1.srcs/sources_1/imports/hdl/ss2.v:25]
+	Parameter pBIT_RATE bound to: 32 - type: integer 
+	Parameter pDATA_BITS bound to: 8 - type: integer 
+	Parameter pSTOP_BITS bound to: 1 - type: integer 
+	Parameter pPARITY_BITS bound to: 0 - type: integer 
+	Parameter pPARITY_ENABLED bound to: 0 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [E:/side_channel_attack/Chipwhisperer/project_1/project_1.srcs/sources_1/imports/hdl/ss2.v:135]
+INFO: [Synth 8-155] case statement is not full and has no default [E:/side_channel_attack/Chipwhisperer/project_1/project_1.srcs/sources_1/imports/hdl/ss2.v:200]
+INFO: [Synth 8-155] case statement is not full and has no default [E:/side_channel_attack/Chipwhisperer/project_1/project_1.srcs/sources_1/imports/hdl/ss2.v:306]
+INFO: [Synth 8-155] case statement is not full and has no default [E:/side_channel_attack/Chipwhisperer/project_1/project_1.srcs/sources_1/imports/hdl/ss2.v:331]
+INFO: [Synth 8-155] case statement is not full and has no default [E:/side_channel_attack/Chipwhisperer/project_1/project_1.srcs/sources_1/imports/hdl/ss2.v:357]
+INFO: [Synth 8-6157] synthesizing module 'crc_ss2' [E:/side_channel_attack/Chipwhisperer/project_1/project_1.srcs/sources_1/imports/hdl/crc_ss2.v:25]
+INFO: [Synth 8-6155] done synthesizing module 'crc_ss2' (1#1) [E:/side_channel_attack/Chipwhisperer/project_1/project_1.srcs/sources_1/imports/hdl/crc_ss2.v:25]
+INFO: [Synth 8-6157] synthesizing module 'uart_core' [E:/side_channel_attack/Chipwhisperer/project_1/project_1.srcs/sources_1/imports/hdl/uart_core.v:58]
+INFO: [Synth 8-6155] done synthesizing module 'uart_core' (2#1) [E:/side_channel_attack/Chipwhisperer/project_1/project_1.srcs/sources_1/imports/hdl/uart_core.v:58]
+INFO: [Synth 8-6157] synthesizing module 'fifo_sync' [E:/side_channel_attack/Chipwhisperer/project_1/project_1.srcs/sources_1/imports/hdl/fifo_sync.v:25]
+	Parameter pDATA_WIDTH bound to: 8 - type: integer 
+	Parameter pDEPTH bound to: 256 - type: integer 
+	Parameter pFALLTHROUGH bound to: 1 - type: integer 
+	Parameter pFLOPS bound to: 1 - type: integer 
+	Parameter pBRAM bound to: 0 - type: integer 
+	Parameter pDISTRIBUTED bound to: 0 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'fifo_sync' (3#1) [E:/side_channel_attack/Chipwhisperer/project_1/project_1.srcs/sources_1/imports/hdl/fifo_sync.v:25]
+INFO: [Synth 8-6155] done synthesizing module 'ss2' (4#1) [E:/side_channel_attack/Chipwhisperer/project_1/project_1.srcs/sources_1/imports/hdl/ss2.v:25]
+INFO: [Synth 8-6157] synthesizing module 'cw305_top' [E:/side_channel_attack/Chipwhisperer/fpga/cw312/cw305_artixtarget/fpga/common/cw305_top.v:32]
+	Parameter pBYTECNT_SIZE bound to: 8 - type: integer 
+	Parameter pADDR_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'cw305_usb_reg_fe' [E:/side_channel_attack/Chipwhisperer/project_1/project_1.srcs/sources_1/imports/hdl/cw305_usb_reg_fe.v:31]
+	Parameter pADDR_WIDTH bound to: 32 - type: integer 
+	Parameter pBYTECNT_SIZE bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'cw305_usb_reg_fe' (5#1) [E:/side_channel_attack/Chipwhisperer/project_1/project_1.srcs/sources_1/imports/hdl/cw305_usb_reg_fe.v:31]
+INFO: [Synth 8-6157] synthesizing module 'cw305_reg_aes' [E:/side_channel_attack/Chipwhisperer/fpga/cw312/cw305_artixtarget/fpga/common/cw305_reg_aes.v:33]
+	Parameter pADDR_WIDTH bound to: 32 - type: integer 
+	Parameter pBYTECNT_SIZE bound to: 8 - type: integer 
+	Parameter pPT_WIDTH bound to: 128 - type: integer 
+	Parameter pCT_WIDTH bound to: 128 - type: integer 
+	Parameter pKEY_WIDTH bound to: 128 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [E:/side_channel_attack/Chipwhisperer/fpga/cw312/cw305_artixtarget/fpga/common/cw305_reg_aes.v:170]
+INFO: [Synth 8-6157] synthesizing module 'cdc_pulse' [E:/side_channel_attack/Chipwhisperer/project_1/project_1.srcs/sources_1/imports/hdl/cdc_pulse.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'cdc_pulse' (6#1) [E:/side_channel_attack/Chipwhisperer/project_1/project_1.srcs/sources_1/imports/hdl/cdc_pulse.v:24]
+INFO: [Synth 8-6157] synthesizing module 'USR_ACCESSE2' [E:/Xilinx/Vivado/2021.1/scripts/rt/data/unisim_comp.v:104606]
+INFO: [Synth 8-6155] done synthesizing module 'USR_ACCESSE2' (7#1) [E:/Xilinx/Vivado/2021.1/scripts/rt/data/unisim_comp.v:104606]
+INFO: [Synth 8-6155] done synthesizing module 'cw305_reg_aes' (8#1) [E:/side_channel_attack/Chipwhisperer/fpga/cw312/cw305_artixtarget/fpga/common/cw305_reg_aes.v:33]
+INFO: [Synth 8-6157] synthesizing module 'clocks' [E:/side_channel_attack/Chipwhisperer/fpga/cw312/cw305_artixtarget/fpga/common/clocks.v:32]
+INFO: [Synth 8-6157] synthesizing module 'BUFGMUX_CTRL' [E:/Xilinx/Vivado/2021.1/scripts/rt/data/unisim_comp.v:1211]
+INFO: [Synth 8-6155] done synthesizing module 'BUFGMUX_CTRL' (9#1) [E:/Xilinx/Vivado/2021.1/scripts/rt/data/unisim_comp.v:1211]
+INFO: [Synth 8-6157] synthesizing module 'ODDR' [E:/Xilinx/Vivado/2021.1/scripts/rt/data/unisim_comp.v:69805]
+INFO: [Synth 8-6155] done synthesizing module 'ODDR' (10#1) [E:/Xilinx/Vivado/2021.1/scripts/rt/data/unisim_comp.v:69805]
+INFO: [Synth 8-6157] synthesizing module 'IBUFG' [E:/Xilinx/Vivado/2021.1/scripts/rt/data/unisim_comp.v:52141]
+INFO: [Synth 8-6155] done synthesizing module 'IBUFG' (11#1) [E:/Xilinx/Vivado/2021.1/scripts/rt/data/unisim_comp.v:52141]
+INFO: [Synth 8-6157] synthesizing module 'BUFG' [E:/Xilinx/Vivado/2021.1/scripts/rt/data/unisim_comp.v:1083]
+INFO: [Synth 8-6155] done synthesizing module 'BUFG' (12#1) [E:/Xilinx/Vivado/2021.1/scripts/rt/data/unisim_comp.v:1083]
+INFO: [Synth 8-6155] done synthesizing module 'clocks' (13#1) [E:/side_channel_attack/Chipwhisperer/fpga/cw312/cw305_artixtarget/fpga/common/clocks.v:32]
+INFO: [Synth 8-6157] synthesizing module 'aes_core' [E:/side_channel_attack/Chipwhisperer/fpga/cw312/cw305_artixtarget/fpga/cryptosrc/aes_googlevault/aes_core.v:36]
+INFO: [Synth 8-6157] synthesizing module 'aes_ks' [E:/side_channel_attack/Chipwhisperer/fpga/cw312/cw305_artixtarget/fpga/cryptosrc/aes_googlevault/aes_ks.v:36]
+INFO: [Synth 8-155] case statement is not full and has no default [E:/side_channel_attack/Chipwhisperer/fpga/cw312/cw305_artixtarget/fpga/cryptosrc/aes_googlevault/aes_ks.v:111]
+INFO: [Synth 8-155] case statement is not full and has no default [E:/side_channel_attack/Chipwhisperer/fpga/cw312/cw305_artixtarget/fpga/cryptosrc/aes_googlevault/aes_ks.v:121]
+INFO: [Synth 8-6155] done synthesizing module 'aes_ks' (14#1) [E:/side_channel_attack/Chipwhisperer/fpga/cw312/cw305_artixtarget/fpga/cryptosrc/aes_googlevault/aes_ks.v:36]
+INFO: [Synth 8-155] case statement is not full and has no default [E:/side_channel_attack/Chipwhisperer/fpga/cw312/cw305_artixtarget/fpga/cryptosrc/aes_googlevault/aes_core.v:292]
+INFO: [Synth 8-6155] done synthesizing module 'aes_core' (15#1) [E:/side_channel_attack/Chipwhisperer/fpga/cw312/cw305_artixtarget/fpga/cryptosrc/aes_googlevault/aes_core.v:36]
+INFO: [Synth 8-6155] done synthesizing module 'cw305_top' (16#1) [E:/side_channel_attack/Chipwhisperer/fpga/cw312/cw305_artixtarget/fpga/common/cw305_top.v:32]
+INFO: [Synth 8-6155] done synthesizing module 'ss2_aes_wrapper' (17#1) [E:/side_channel_attack/Chipwhisperer/project_1/project_1.srcs/sources_1/imports/hdl/ss2_aes_wrapper.v:25]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:00 ; elapsed = 00:00:04 . Memory (MB): peak = 1222.051 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 1222.051 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 1222.051 ; gain = 0.000
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.048 . Memory (MB): peak = 1222.051 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 3 Unisim elements for replacement
+WARNING: [Netlist 29-432] The IBUFG primitive 'U_cw305_dut/U_clocks/clkibuf' has been retargeted to an IBUF primitive only. No BUFG will be added. If a global buffer is intended, please instantiate an available global clock primitive from the current architecture.
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [E:/side_channel_attack/Chipwhisperer/fpga/cw312/src/xc7a35/vivado/cw312_ss2.xdc]
+Finished Parsing XDC File [E:/side_channel_attack/Chipwhisperer/fpga/cw312/src/xc7a35/vivado/cw312_ss2.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [E:/side_channel_attack/Chipwhisperer/fpga/cw312/src/xc7a35/vivado/cw312_ss2.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/ss2_aes_wrapper_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/ss2_aes_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1281.633 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 2 instances were transformed.
+  BUFGMUX_CTRL => BUFGCTRL (inverted pins: S0): 1 instance 
+  IBUFG => IBUF: 1 instance 
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1281.633 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:00 ; elapsed = 00:00:09 . Memory (MB): peak = 1281.633 ; gain = 59.582
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:00 ; elapsed = 00:00:09 . Memory (MB): peak = 1281.633 ; gain = 59.582
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:00 ; elapsed = 00:00:09 . Memory (MB): peak = 1281.633 ; gain = 59.582
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'rx_state_reg' in module 'ss2'
+INFO: [Synth 8-802] inferred FSM for state register 'tx_state_reg' in module 'ss2'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+              pS_TX_IDLE |                            00001 |                              000
+             pS_TX_0WAIT |                            00010 |                              001
+        pS_TX_WAIT_READY |                            00100 |                              010
+        pS_TX_EMPTY_FIFO |                            01000 |                              011
+              pS_TX_DONE |                            10000 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'tx_state_reg' using encoding 'one-hot' in module 'ss2'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+              pS_RX_IDLE |                              000 |                              000
+         pS_RX_NUM_BYTES |                              001 |                              001
+                pS_RX_RX |                              010 |                              010
+         pS_RX_DELIMITER |                              011 |                              110
+       pS_RX_INSERT_ZERO |                              100 |                              011
+    pS_RX_WAIT_NUM_BYTES |                              101 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'rx_state_reg' using encoding 'sequential' in module 'ss2'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:00 ; elapsed = 00:00:10 . Memory (MB): peak = 1281.633 ; gain = 59.582
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 2     
+	   2 Input   16 Bit       Adders := 2     
+	   2 Input   10 Bit       Adders := 2     
+	   3 Input   10 Bit       Adders := 1     
+	   2 Input    9 Bit       Adders := 10    
+	   2 Input    8 Bit       Adders := 5     
+	   2 Input    5 Bit       Adders := 2     
+	   2 Input    4 Bit       Adders := 2     
++---XORs : 
+	   2 Input    128 Bit         XORs := 2     
+	   2 Input     32 Bit         XORs := 6     
+	   2 Input      8 Bit         XORs := 90    
+	   9 Input      8 Bit         XORs := 8     
+	   8 Input      8 Bit         XORs := 8     
+	   4 Input      8 Bit         XORs := 16    
+	   2 Input      1 Bit         XORs := 4     
+	   3 Input      1 Bit         XORs := 3     
+	   4 Input      1 Bit         XORs := 1     
+	   5 Input      1 Bit         XORs := 2     
+	   7 Input      1 Bit         XORs := 1     
+	   8 Input      1 Bit         XORs := 1     
+	   6 Input      1 Bit         XORs := 3     
++---XORs : 
+	               10 Bit    Wide XORs := 1     
++---Registers : 
+	              256 Bit    Registers := 1     
+	              128 Bit    Registers := 13    
+	               32 Bit    Registers := 2     
+	               16 Bit    Registers := 2     
+	                9 Bit    Registers := 3     
+	                8 Bit    Registers := 19    
+	                5 Bit    Registers := 3     
+	                4 Bit    Registers := 2     
+	                3 Bit    Registers := 4     
+	                2 Bit    Registers := 6     
+	                1 Bit    Registers := 50    
++---RAMs : 
+	               2K Bit	(256 X 8 bit)          RAMs := 1     
+	               1K Bit	(15 X 128 bit)          RAMs := 1     
++---Muxes : 
+	   9 Input  256 Bit        Muxes := 1     
+	   7 Input  256 Bit        Muxes := 1     
+	   2 Input  256 Bit        Muxes := 1     
+	   2 Input  128 Bit        Muxes := 17    
+	   6 Input  128 Bit        Muxes := 3     
+	  11 Input   32 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 3     
+	   2 Input   16 Bit        Muxes := 4     
+	   2 Input   10 Bit        Muxes := 1     
+	   2 Input    9 Bit        Muxes := 1     
+	   6 Input    8 Bit        Muxes := 2     
+	   2 Input    8 Bit        Muxes := 13    
+	   7 Input    8 Bit        Muxes := 1     
+	   4 Input    8 Bit        Muxes := 1     
+	   5 Input    8 Bit        Muxes := 2     
+	   2 Input    5 Bit        Muxes := 5     
+	   5 Input    5 Bit        Muxes := 1     
+	   3 Input    4 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 6     
+	   3 Input    3 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 7     
+	   4 Input    3 Bit        Muxes := 1     
+	   6 Input    3 Bit        Muxes := 1     
+	   5 Input    3 Bit        Muxes := 1     
+	   7 Input    3 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 1     
+	   3 Input    2 Bit        Muxes := 1     
+	   6 Input    1 Bit        Muxes := 21    
+	   2 Input    1 Bit        Muxes := 50    
+	   7 Input    1 Bit        Muxes := 11    
+	   8 Input    1 Bit        Muxes := 5     
+	  10 Input    1 Bit        Muxes := 1     
+	   5 Input    1 Bit        Muxes := 17    
+	   3 Input    1 Bit        Muxes := 1     
+	   4 Input    1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:01 ; elapsed = 00:00:16 . Memory (MB): peak = 1281.633 ; gain = 59.582
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++----------------+-----------------------------------+-----------+----------------------+--------------+
+|Module Name     | RTL Object                        | Inference | Size (Depth x Width) | Primitives   | 
++----------------+-----------------------------------+-----------+----------------------+--------------+
+|ss2_aes_wrapper | U_ss2/U_tx_fifo/flop_inst.mem_reg | Implied   | 256 x 8              | RAM64M x 12  | 
++----------------+-----------------------------------+-----------+----------------------+--------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:02 ; elapsed = 00:00:19 . Memory (MB): peak = 1281.633 ; gain = 59.582
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:02 ; elapsed = 00:00:20 . Memory (MB): peak = 1281.633 ; gain = 59.582
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Final Mapping Report
++----------------+-----------------------------------+-----------+----------------------+--------------+
+|Module Name     | RTL Object                        | Inference | Size (Depth x Width) | Primitives   | 
++----------------+-----------------------------------+-----------+----------------------+--------------+
+|ss2_aes_wrapper | U_ss2/U_tx_fifo/flop_inst.mem_reg | Implied   | 256 x 8              | RAM64M x 12  | 
++----------------+-----------------------------------+-----------+----------------------+--------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:02 ; elapsed = 00:00:20 . Memory (MB): peak = 1281.633 ; gain = 59.582
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:02 ; elapsed = 00:00:22 . Memory (MB): peak = 1281.633 ; gain = 59.582
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:02 ; elapsed = 00:00:22 . Memory (MB): peak = 1281.633 ; gain = 59.582
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:02 ; elapsed = 00:00:22 . Memory (MB): peak = 1281.633 ; gain = 59.582
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:02 ; elapsed = 00:00:22 . Memory (MB): peak = 1281.633 ; gain = 59.582
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:22 . Memory (MB): peak = 1281.633 ; gain = 59.582
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:02 ; elapsed = 00:00:22 . Memory (MB): peak = 1281.633 ; gain = 59.582
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++----------------+--------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name     | RTL Name                       | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++----------------+--------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|ss2_aes_wrapper | U_ss2/tx_next_byte_pipe_reg[3] | 3      | 1     | NO           | NO                 | YES               | 1      | 0       | 
++----------------+--------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------------+------+
+|      |Cell         |Count |
++------+-------------+------+
+|1     |BUFG         |     1|
+|2     |BUFGMUX_CTRL |     1|
+|3     |CARRY4       |    51|
+|4     |LUT1         |   147|
+|5     |LUT2         |    85|
+|6     |LUT3         |   269|
+|7     |LUT4         |   215|
+|8     |LUT5         |   289|
+|9     |LUT6         |   740|
+|10    |MUXF7        |    83|
+|11    |MUXF8        |    25|
+|12    |ODDR         |     1|
+|13    |RAM64M       |    12|
+|14    |SRL16E       |     1|
+|15    |USR_ACCESSE2 |     1|
+|16    |FDCE         |    89|
+|17    |FDPE         |     1|
+|18    |FDRE         |  1836|
+|19    |FDSE         |     3|
+|20    |IBUF         |     2|
+|21    |IBUFG        |     1|
+|22    |OBUF         |     6|
+|23    |OBUFT        |     1|
++------+-------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:02 ; elapsed = 00:00:22 . Memory (MB): peak = 1281.633 ; gain = 59.582
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:02 ; elapsed = 00:00:21 . Memory (MB): peak = 1281.633 ; gain = 0.000
+Synthesis Optimization Complete : Time (s): cpu = 00:00:02 ; elapsed = 00:00:22 . Memory (MB): peak = 1281.633 ; gain = 59.582
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.034 . Memory (MB): peak = 1281.633 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 174 Unisim elements for replacement
+WARNING: [Netlist 29-432] The IBUFG primitive 'U_cw305_dut/U_clocks/clkibuf' has been retargeted to an IBUF primitive only. No BUFG will be added. If a global buffer is intended, please instantiate an available global clock primitive from the current architecture.
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1281.633 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 14 instances were transformed.
+  BUFGMUX_CTRL => BUFGCTRL (inverted pins: S0): 1 instance 
+  IBUFG => IBUF: 1 instance 
+  RAM64M => RAM64M (RAMD64E(x4)): 12 instances
+
+Synth Design complete, checksum: 3672f5d8
+INFO: [Common 17-83] Releasing license: Synthesis
+64 Infos, 6 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:03 ; elapsed = 00:00:30 . Memory (MB): peak = 1281.633 ; gain = 59.582
+INFO: [Common 17-1381] The checkpoint 'E:/side_channel_attack/Chipwhisperer/project_1/project_1.runs/synth_1/ss2_aes_wrapper.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file ss2_aes_wrapper_utilization_synth.rpt -pb ss2_aes_wrapper_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Aug 28 20:38:44 2023...
