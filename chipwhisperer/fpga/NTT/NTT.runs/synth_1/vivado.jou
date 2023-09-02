@@ -2,8 +2,8 @@
 # Vivado v2021.1 (64-bit)
 # SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
 # IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
-# Start of session at: Tue Aug 29 04:09:49 2023
-# Process ID: 12248
+# Start of session at: Tue Aug 29 04:15:52 2023
+# Process ID: 8144
 # Current directory: E:/side_channel_attack/Chipwhisperer/fpga/NTT/NTT.runs/synth_1
 # Command line: vivado.exe -log NTTN_test.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source NTTN_test.tcl
 # Log file: E:/side_channel_attack/Chipwhisperer/fpga/NTT/NTT.runs/synth_1/NTTN_test.vds

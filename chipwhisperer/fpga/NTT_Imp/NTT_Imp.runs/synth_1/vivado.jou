@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Tue Aug 29 04:21:53 2023
+# Process ID: 16276
+# Current directory: E:/side_channel_attack/Chipwhisperer/fpga/NTT_Imp/NTT_Imp.runs/synth_1
+# Command line: vivado.exe -log dil_1pe.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source dil_1pe.tcl
+# Log file: E:/side_channel_attack/Chipwhisperer/fpga/NTT_Imp/NTT_Imp.runs/synth_1/dil_1pe.vds
+# Journal file: E:/side_channel_attack/Chipwhisperer/fpga/NTT_Imp/NTT_Imp.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source dil_1pe.tcl -notrace

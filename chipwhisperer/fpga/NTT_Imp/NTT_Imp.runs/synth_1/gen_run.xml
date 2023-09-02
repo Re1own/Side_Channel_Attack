@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="synth_1" LaunchPart="xc7a35tcsg324-1" LaunchTime="1693297312">
+  <File Type="PA-TCL" Name="dil_1pe.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="dil_1pe_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="dil_1pe_reports.tcl"/>
+  <File Type="RDS-RDS" Name="dil_1pe.vds"/>
+  <File Type="RDS-UTIL" Name="dil_1pe_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="dil_1pe_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="dil_1pe.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="dil_1pe_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="dil_1pe_timing_summary_synth.pb"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/imports/pqc-param-ntt/source/defines.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/pqc-param-ntt/source/defines.v"/>
+        <Attr Name="ImportTime" Val="1693297039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/pqc-param-ntt/source/AddressGenerator.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/pqc-param-ntt/source/AddressGenerator.v"/>
+        <Attr Name="ImportTime" Val="1693297039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/pqc-param-ntt/source/BRAM.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/pqc-param-ntt/source/BRAM.v"/>
+        <Attr Name="ImportTime" Val="1693297039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/pqc-param-ntt/source/NTT1024.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/pqc-param-ntt/source/NTT1024.v"/>
+        <Attr Name="ImportTime" Val="1693297039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/pqc-param-ntt/source/ShiftReg.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/pqc-param-ntt/source/ShiftReg.v"/>
+        <Attr Name="ImportTime" Val="1693297039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/pqc-param-ntt/source/butterfly.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/pqc-param-ntt/source/butterfly.v"/>
+        <Attr Name="ImportTime" Val="1693297039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/pqc-param-ntt/source/modular_add.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/pqc-param-ntt/source/modular_add.v"/>
+        <Attr Name="ImportTime" Val="1693297039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/pqc-param-ntt/source/modular_sub.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/pqc-param-ntt/source/modular_sub.v"/>
+        <Attr Name="ImportTime" Val="1693297039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/pqc-param-ntt/source/mont_redu_top.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/pqc-param-ntt/source/mont_redu_top.v"/>
+        <Attr Name="ImportTime" Val="1693297039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/pqc-param-ntt/source/multiplier.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/pqc-param-ntt/source/multiplier.v"/>
+        <Attr Name="ImportTime" Val="1693297039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/pqc-param-ntt/tb/dil_1pe.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/pqc-param-ntt/tb/dil_1pe.v"/>
+        <Attr Name="ImportTime" Val="1693297039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/pqc-param-ntt/tb/dil_32pe.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/pqc-param-ntt/tb/dil_32pe.v"/>
+        <Attr Name="ImportTime" Val="1693297039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/pqc-param-ntt/tb/dil_8pe.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/pqc-param-ntt/tb/dil_8pe.v"/>
+        <Attr Name="ImportTime" Val="1693297039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/pqc-param-ntt/tb/kyber1_16pe.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/pqc-param-ntt/tb/kyber1_16pe.v"/>
+        <Attr Name="ImportTime" Val="1693297039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/pqc-param-ntt/tb/kyber1_1pe.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/pqc-param-ntt/tb/kyber1_1pe.v"/>
+        <Attr Name="ImportTime" Val="1693297039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/pqc-param-ntt/tb/kyber1_32pe.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/pqc-param-ntt/tb/kyber1_32pe.v"/>
+        <Attr Name="ImportTime" Val="1693297039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/pqc-param-ntt/tb/kyber1_8pe.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/pqc-param-ntt/tb/kyber1_8pe.v"/>
+        <Attr Name="ImportTime" Val="1693297039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/pqc-param-ntt/tb/kyber2_16pe.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/pqc-param-ntt/tb/kyber2_16pe.v"/>
+        <Attr Name="ImportTime" Val="1693297039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/pqc-param-ntt/tb/kyber2_1pe.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/pqc-param-ntt/tb/kyber2_1pe.v"/>
+        <Attr Name="ImportTime" Val="1693297039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/pqc-param-ntt/tb/kyber2_2pe.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/pqc-param-ntt/tb/kyber2_2pe.v"/>
+        <Attr Name="ImportTime" Val="1693297039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/pqc-param-ntt/tb/kyber2_32pe.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/pqc-param-ntt/tb/kyber2_32pe.v"/>
+        <Attr Name="ImportTime" Val="1693297039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/pqc-param-ntt/tb/kyber2_8pe.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/pqc-param-ntt/tb/kyber2_8pe.v"/>
+        <Attr Name="ImportTime" Val="1693297039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/pqc-param-ntt/tb/nhf_1pe.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/pqc-param-ntt/tb/nhf_1pe.v"/>
+        <Attr Name="ImportTime" Val="1693297039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/pqc-param-ntt/tb/nhf_32pe.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/pqc-param-ntt/tb/nhf_32pe.v"/>
+        <Attr Name="ImportTime" Val="1693297039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/pqc-param-ntt/tb/nhf_8pe.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/pqc-param-ntt/tb/nhf_8pe.v"/>
+        <Attr Name="ImportTime" Val="1693297039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/pqc-param-ntt/tb/tes_1pe.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/pqc-param-ntt/tb/tes_1pe.v"/>
+        <Attr Name="ImportTime" Val="1693297039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/pqc-param-ntt/tb/tes_32pe.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/pqc-param-ntt/tb/tes_32pe.v"/>
+        <Attr Name="ImportTime" Val="1693297039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/pqc-param-ntt/tb/tes_8pe.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../github/pqc-param-ntt/tb/tes_8pe.v"/>
+        <Attr Name="ImportTime" Val="1693297039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="dil_1pe"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021">
+      <Desc>Vivado Synthesis Defaults</Desc>
+    </StratHandle>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>
