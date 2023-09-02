@@ -4,11 +4,11 @@ Open Vivado application, create project ->
 
 If your vivado does not have Zybo board option, you can download this [Rep](https://github.com/Digilent/vivado-boards). Then copy Zybo directory to the E:\Xilinx\Vivado\2021.1\data\xhub\boards\XilinxBoardStore\boards\Xilinx
 
-![image-20230902033023715](E:\side_channel_attack\sideline_attack\img\README\image-20230902033023715.png)
+![image-20230902033023715](.\img\README\image-20230902033023715.png)
 
 Restart Vivado, then search Zybo boards
 
-![image-20230902033208785](E:\side_channel_attack\sideline_attack\img\README\image-20230902033208785.png)
+![image-20230902033208785](.\img\README\image-20230902033208785.png)
 
 
 
