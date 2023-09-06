@@ -151,15 +151,15 @@ def var_labels(key, plaintext, masks, rin, rout):
 @ft.lru_cache(maxsize=None)
 def get_traces(settings, start, l):
     """Load traces and labels from ASCAD database."""
-    #I = np.arange(start, start + l)
-    #f_database = load_database(settings)
-    #traces = f_database["traces"][start : start + l, :].astype(np.int16)
-    #key = f_database["metadata"]["key"][I, 2:].astype(np.uint16)
-    #plaintext = f_database["metadata"]["plaintext"][I, 2:].astype(np.uint16)
-    #masks = f_database["metadata"]["masks"][I, 2:16].astype(np.uint16)
-    #rin = f_database["metadata"]["masks"][I, 16].astype(np.uint16)
-    #rout = f_database["metadata"]["masks"][I, 17].astype(np.uint16)
-    #labels = var_labels(key, plaintext, masks, rin, rout)
+    # I = np.arange(start, start + l)
+    # f_database = load_database(settings)
+    # traces = f_database["traces"][start : start + l, :].astype(np.int16)
+    # key = f_database["metadata"]["key"][I, 2:].astype(np.uint16)
+    # plaintext = f_database["metadata"]["plaintext"][I, 2:].astype(np.uint16)
+    # masks = f_database["metadata"]["masks"][I, 2:16].astype(np.uint16)
+    # rin = f_database["metadata"]["masks"][I, 16].astype(np.uint16)
+    # rout = f_database["metadata"]["masks"][I, 17].astype(np.uint16)
+    # labels = var_labels(key, plaintext, masks, rin, rout)
     #!!!!
     traces = np.load("./sample/traces.npy")
     labels = load_dict("./sample/labels.pkl")
@@ -267,6 +267,10 @@ def run_attack_eval(traces, labels, models):
     """Run a SASCA attack on the given traces and evaluate its performance.
     Returns the log2 of the rank of the true key.
     """
+
+
+
+
     secret_key, key_distribution = attack(traces, labels, models)
     rmin, r, rmax = scalib.postprocessing.rank_accuracy(
         -np.log2(key_distribution), secret_key, max_nb_bin=2**20
@@ -277,13 +281,19 @@ def run_attack_eval(traces, labels, models):
 def run_attacks_eval(settings, models):
     """Return the list of the rank of the true key for each attack."""
     # Offset in traces to no attack the training traces
-    traces, labels = get_traces(settings, start=settings.profile, l=settings.attacks)
+    #traces, labels = get_traces(settings, start=settings.profile, l=settings.attacks)
+    traces = np.load("./sample/traces.npy")
+    traces = traces[0:100]
+
+    labels = load_dict("./sample/labels.pkl")
+    labels['k_0'] = labels['k_0'][0:100]
+
     return 2**np.array(list(tqdm(map(
         lambda a: run_attack_eval(
             traces[a:a+1,:],
             {k: val[a:a+1] for k, val in labels.items()},
             models
-            ), 
+            ),
         range(settings.attacks),
         ),
         total=settings.attacks,
@@ -302,6 +312,18 @@ if __name__ == "__main__":
     models = compute_templates(settings, snr)
     print("Start attack")
     ranks = run_attacks_eval(settings, models)
+    traces = np.load("./sample/traces.npy")
+    traces = traces[0:100]
+
+    labels = load_dict("./sample/labels.pkl")
+    labels['k_0'] = labels['k_0'][0:100]
+
+
+
+
+
+
+
     print('Attack ranks', collections.Counter(ranks))
     print(f'Success rate (rank 1): {success_rate(ranks, min_rank=1)*100:.0f}%')
     print(f'Success rate (rank 2**32): {success_rate(ranks, min_rank=2**32)*100:.0f}%')
