@@ -82,11 +82,11 @@ def compute_snr(settings):
 
 def get_traces(settings, start, l):
     """Load traces and labels"""
-    traces = np.load("E:\\side_channel_attack\\Traces\\Xor_50000_fixed_key\\traces.npy")
+    traces = np.load("D:\\Side_Channel_Attack\\Traces\\Xor_20000_variable_key\\traces.npy")
     traces = traces[start:l]
-    plaintext = np.load("E:\\side_channel_attack\\Traces\\Xor_50000_fixed_key\\p.npy")
+    plaintext = np.load("D:\\Side_Channel_Attack\\Traces\\Xor_20000_variable_key\\p.npy")
     plaintext = plaintext[start:l]
-    key =np.load("E:\\side_channel_attack\\Traces\\Xor_50000_fixed_key\\k.npy")
+    key =np.load("D:\\Side_Channel_Attack\\Traces\\Xor_20000_variable_key\\k.npy")
     key = key[start:l]
     labels = var_labels(key, plaintext)
     return traces, labels
