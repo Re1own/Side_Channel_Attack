@@ -30,7 +30,7 @@ def load_dict(filename_):
 
 def target_variables(byte):
     """variables that will be profiled"""
-    return [f"{base}_{byte}" for base in ("k", "p", "output")]
+    return [f"{base}_{byte}" for base in ("k", "output")]
 
 def parse_args():
     parser = argparse.ArgumentParser(
@@ -45,13 +45,13 @@ def parse_args():
     parser.add_argument(
         "--profile",
         type=int,
-        default=15000,
+        default=5000,
         help="Number of traces used for profiling (default: %(default)s).",
     )
     parser.add_argument(
         "--poi",
         type=int,
-        default=100,
+        default=120,
         help="Number of POIs for each variable (default: %(default)s).",
     )
     parser.add_argument(
@@ -92,13 +92,13 @@ def map_to_0_255(data_array):
     return mapped_array
 def get_traces(settings, start, l):
     """Load traces and labels"""
-    traces = np.load("D:\\Side_Channel_Attack\\Traces\\Xor_20000_variable_key\\traces.npy")
+    traces = np.load("E:\\Side_Channel_Attack\\Traces\\Xor_20000_variable_key\\traces.npy")
     traces = map_to_0_255(traces)
     traces = traces[start:l]
-    plaintext = np.load("D:\\Side_Channel_Attack\\Traces\\Xor_20000_variable_key\\p.npy")
+    plaintext = np.load("E:\\Side_Channel_Attack\\Traces\\Xor_20000_variable_key\\p.npy")
     plaintext = plaintext.astype(np.uint16)
     plaintext = plaintext[start:l]
-    key =np.load("D:\\Side_Channel_Attack\\Traces\\Xor_20000_variable_key\\k.npy")
+    key =np.load("E:\\Side_Channel_Attack\\Traces\\Xor_20000_variable_key\\k.npy")
     key = key.astype(np.uint16)
     key = key[start:l]
     labels = var_labels(key, plaintext)
@@ -106,13 +106,13 @@ def get_traces(settings, start, l):
 
 def get_traces2(settings, start, l):
     """Load traces and labels"""
-    traces = np.load("D:\\Side_Channel_Attack\\Traces\\Xor_50000_fixed_key\\traces.npy")
+    traces = np.load("E:\\Side_Channel_Attack\\Traces\\Xor_50000_fixed_key\\traces.npy")
     traces = map_to_0_255(traces)
     traces = traces[start:l]
-    plaintext = np.load("D:\\Side_Channel_Attack\\Traces\\Xor_50000_fixed_key\\p.npy")
+    plaintext = np.load("E:\\Side_Channel_Attack\\Traces\\Xor_50000_fixed_key\\p.npy")
     plaintext = plaintext.astype(np.uint16)
     plaintext = plaintext[start:l]
-    key =np.load("D:\\Side_Channel_Attack\\Traces\\Xor_50000_fixed_key\\k.npy")
+    key =np.load("E:\\Side_Channel_Attack\\Traces\\Xor_50000_fixed_key\\k.npy")
     key = key.astype(np.uint16)
     key = key[start:l]
     labels = var_labels(key, plaintext)
@@ -161,30 +161,10 @@ SASCA_GRAPH = """
 NC 256
 TABLE sbox
 
-VAR MULTI x0
-VAR MULTI x1
-VAR MULTI x
-VAR MULTI xp
-VAR MULTI xrin
-VAR MULTI rout
-VAR MULTI rin
-
-VAR MULTI y0
-VAR MULTI y1
-VAR MULTI y
-VAR MULTI yp
-VAR MULTI yrout
-
-VAR MULTI p
 VAR SINGLE k
-
-PROPERTY x = p ^ k
-PROPERTY x = x0 ^ x1
-PROPERTY x = rin ^ xrin
-
-PROPERTY y = sbox[x]
-PROPERTY y = y0 ^ y1
-PROPERTY y = rout ^ yrout
+VAR MULTI p
+VAR MULTI output
+PROPERTY output = p ^ k
 """
 SBOX = np.array(
     [
@@ -235,6 +215,43 @@ def attack(traces, labels, models):
     key_distribution = np.array(key_distribution)
     return secret_key, key_distribution
 
+def run_attack_eval(traces, labels, models):
+    """Run a SASCA attack on the given traces and evaluate its performance.
+    Returns the log2 of the rank of the true key.
+    """
+
+
+
+
+    secret_key, key_distribution = attack(traces, labels, models)
+    rmin, r, rmax = scalib.postprocessing.rank_accuracy(
+        -np.log2(key_distribution), secret_key, max_nb_bin=2**20
+    )
+    lrmin, lr, lrmax = (np.log2(rmin), np.log2(r), np.log2(rmax))
+    return lr
+
+def run_attacks_eval(settings, models):
+    """Return the list of the rank of the true key for each attack."""
+    # Offset in traces to no attack the training traces
+    #traces, labels = get_traces(settings, start=settings.profile, l=settings.attacks)
+    traces, labels = get_traces(settings, 0, settings.attacks)
+    # print(trace1)
+    # print(key1)
+    return 2**np.array(list(tqdm(map(
+        lambda a: run_attack_eval(
+            traces[a:a+1,:],
+            {k: val[a:a+1] for k, val in labels.items()},
+            models
+            ),
+        range(settings.attacks),
+        ),
+        total=settings.attacks,
+        desc="attacks",
+        )))
+
+def success_rate(ranks, min_rank=1):
+    return np.sum(ranks <= min_rank) / ranks.size
+
 if __name__ == "__main__":
     settings = parse_args()
 
@@ -246,10 +263,16 @@ if __name__ == "__main__":
     print("done")
 
     print("Start attack")
-    trace1, label1 = get_traces2(settings, 0, 1)
-    # print(trace1)
-    # print(key1)
-    secret_key = [label1[f"k_{i}"][0] for i in range(16)]
-    key_distribution = []
-    secret_key, key_distribution = attack(trace1, label1, models)
+
+    # trace1, label1 = get_traces2(settings, 0, 1)
+    # # print(trace1)
+    # # print(key1)
+    # secret_key = [label1[f"k_{i}"][0] for i in range(16)]
+    # key_distribution = []
+    # secret_key, key_distribution = attack(trace1, label1, models)
+
+    ranks = run_attacks_eval(settings, models)
+    print('Attack ranks', collections.Counter(ranks))
+    print(f'Success rate (rank 1): {success_rate(ranks, min_rank=1) * 100:.0f}%')
+    print(f'Success rate (rank 2**32): {success_rate(ranks, min_rank=2 ** 32) * 100:.0f}%')
     print("done")

@@ -59,7 +59,7 @@ def parse_args():
     parser.add_argument(
         "--attacks",
         type=int,
-        default=100,
+        default=1,
         help="Number of attack runs (default: %(default)s).",
     )
     parser.add_argument(
@@ -283,10 +283,10 @@ def run_attacks_eval(settings, models):
     # Offset in traces to no attack the training traces
     #traces, labels = get_traces(settings, start=settings.profile, l=settings.attacks)
     traces = np.load("./sample/traces.npy")
-    traces = traces[0:100]
+    traces = traces[0:settings.attacks]
 
     labels = load_dict("./sample/labels.pkl")
-    labels['k_0'] = labels['k_0'][0:100]
+    labels['k_0'] = labels['k_0'][0:settings.attacks]
 
     return 2**np.array(list(tqdm(map(
         lambda a: run_attack_eval(
@@ -312,17 +312,6 @@ if __name__ == "__main__":
     models = compute_templates(settings, snr)
     print("Start attack")
     ranks = run_attacks_eval(settings, models)
-    traces = np.load("./sample/traces.npy")
-    traces = traces[0:100]
-
-    labels = load_dict("./sample/labels.pkl")
-    labels['k_0'] = labels['k_0'][0:100]
-
-
-
-
-
-
 
     print('Attack ranks', collections.Counter(ranks))
     print(f'Success rate (rank 1): {success_rate(ranks, min_rank=1)*100:.0f}%')
