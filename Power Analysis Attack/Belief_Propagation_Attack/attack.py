@@ -267,10 +267,6 @@ def run_attack_eval(traces, labels, models):
     """Run a SASCA attack on the given traces and evaluate its performance.
     Returns the log2 of the rank of the true key.
     """
-
-
-
-
     secret_key, key_distribution = attack(traces, labels, models)
     rmin, r, rmax = scalib.postprocessing.rank_accuracy(
         -np.log2(key_distribution), secret_key, max_nb_bin=2**20
