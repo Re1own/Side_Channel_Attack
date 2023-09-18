@@ -90,15 +90,16 @@ def map_to_0_255(data_array):
 
     mapped_array = np.int16((data_array - min_value) / (max_value - min_value) * 510 - 255)
     return mapped_array
+
 def get_traces(settings, start, l):
     """Load traces and labels"""
-    traces = np.load("E:\\Side_Channel_Attack\\Traces\\Xor_5000_variable_key\\traces.npy")
+    traces = np.load("D:\\Side_Channel_Attack\\Traces\\AES_5000_varibale_key\\traces.npy")
     traces = map_to_0_255(traces)
     traces = traces[start:l]
-    plaintext = np.load("E:\\Side_Channel_Attack\\Traces\\Xor_5000_variable_key\\p.npy")
+    plaintext = np.load("D:\\Side_Channel_Attack\\Traces\\AES_5000_varibale_key\\p.npy")
     plaintext = plaintext.astype(np.uint16)
     plaintext = plaintext[start:l]
-    key =np.load("E:\\Side_Channel_Attack\\Traces\\Xor_5000_variable_key\\k.npy")
+    key =np.load("D:\\Side_Channel_Attack\\Traces\\AES_5000_varibale_key\\k.npy")
     key = key.astype(np.uint16)
     key = key[start:l]
     labels = var_labels(key, plaintext)
@@ -245,11 +246,11 @@ if __name__ == "__main__":
     # secret_key, key_distribution = attack(trace1, label1, models)
     traces, labels = get_traces(settings, start=0, l=1)
     k, d = attack(traces, labels, models)
-    # 找到每行最大值的索引
+
     print(k)
     max_indices = np.argmax(d, axis=1)
 
-    # 打印每行最大值的索引
+
     for i, max_index in enumerate(max_indices):
         print(f"Row {i}: Max value at index {max_index}")
     print("done")
