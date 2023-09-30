@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:E:/github/chipwhisperer/hardware/victims/cw308_ufo_target/xc7a35/vivado/cw312_ss2.xdc rfile:../../../../github/chipwhisperer/hardware/victims/cw308_ufo_target/xc7a35/vivado/cw312_ss2.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:D:/myhub/Side_Channel_Attack/chipwhisperer/fpga/Xor_Operation/Xor_Operation.srcs/constrs_1/imports/vivado/cw312_ss2.xdc rfile:../../../Xor_Operation.srcs/constrs_1/imports/vivado/cw312_ss2.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:4 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict {DRIVE 8 IOSTANDARD LVCMOS33 PACKAGE_PIN R1} [get_ports led1]
 set_property src_info {type:XDC file:1 line:5 export:INPUT save:INPUT read:READ} [current_design]

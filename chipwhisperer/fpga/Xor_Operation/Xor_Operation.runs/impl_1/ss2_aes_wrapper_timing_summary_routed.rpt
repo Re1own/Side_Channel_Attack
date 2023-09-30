@@ -1,8 +1,8 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-| Date         : Sun Aug 27 05:43:16 2023
-| Host         : VENGEANCE running 64-bit major release  (build 9200)
+| Date         : Sat Sep 30 15:59:54 2023
+| Host         : Lab-4090 running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -file ss2_aes_wrapper_timing_summary_routed.rpt -pb ss2_aes_wrapper_timing_summary_routed.pb -rpx ss2_aes_wrapper_timing_summary_routed.rpx -warn_on_violation
 | Design       : ss2_aes_wrapper
 | Device       : 7a35t-csg324
@@ -141,7 +141,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-      0.729        0.000                      0                 3349        0.012        0.000                      0                 3349        3.750        0.000                       0                  1982  
+      0.426        0.000                      0                 3349        0.016        0.000                      0                 3349        3.750        0.000                       0                  1982  
 
 
 All user specified timing constraints are met.
@@ -164,7 +164,7 @@ clk    {0.000 5.000}      10.000          100.000
 
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-clk                 0.729        0.000                      0                 3349        0.012        0.000                      0                 3349        3.750        0.000                       0                  1982  
+clk                 0.426        0.000                      0                 3349        0.016        0.000                      0                 3349        3.750        0.000                       0                  1982  
 
 
 ------------------------------------------------------------------------------------------------
@@ -195,83 +195,27 @@ Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing 
 From Clock:  clk
   To Clock:  clk
 
-Setup :            0  Failing Endpoints,  Worst Slack        0.729ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.012ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        0.426ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.016ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        3.750ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.729ns  (required time - arrival time)
-  Source:                 U_cw305_dut/U_reg_aes/O_clksettings_reg[1]/C
-                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            U_cw305_dut/U_clocks/CCLK_MUX/S1
-                            (falling edge-triggered cell BUFGCTRL clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            5.000ns  (clk fall@5.000ns - clk rise@0.000ns)
-  Data Path Delay:        2.663ns  (logic 0.642ns (24.112%)  route 2.021ns (75.888%))
-  Logic Levels:           1  (LUT3=1)
-  Clock Path Skew:        -1.414ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    3.529ns = ( 8.529 - 5.000 ) 
-    Source Clock Delay      (SCD):    5.123ns
-    Clock Pessimism Removal (CPR):    0.179ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk rise edge)        0.000     0.000 r  
-    D15                                               0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    U_cw305_dut/U_clocks/clk
-    D15                  IBUF (Prop_ibuf_I_O)         1.508     1.508 r  U_cw305_dut/U_clocks/clkibuf/O
-                         net (fo=1, routed)           1.972     3.479    U_cw305_dut/U_clocks/usb_clk_bufg
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.575 r  U_cw305_dut/U_clocks/clkbuf/O
-                         net (fo=1061, routed)        1.547     5.123    U_cw305_dut/U_reg_aes/src_req_reg_0
-    SLICE_X38Y24         FDRE                                         r  U_cw305_dut/U_reg_aes/O_clksettings_reg[1]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X38Y24         FDRE (Prop_fdre_C_Q)         0.518     5.641 f  U_cw305_dut/U_reg_aes/O_clksettings_reg[1]/Q
-                         net (fo=2, routed)           0.814     6.455    U_cw305_dut/U_reg_aes/O_clksettings_reg[4]_0[1]
-    SLICE_X37Y27         LUT3 (Prop_lut3_I0_O)        0.124     6.579 r  U_cw305_dut/U_reg_aes/CCLK_MUX_i_1/O
-                         net (fo=2, routed)           1.206     7.785    U_cw305_dut/U_clocks/cclk_src_is_ext
-    BUFGCTRL_X0Y17       BUFGCTRL                                     r  U_cw305_dut/U_clocks/CCLK_MUX/S1
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk fall edge)        5.000     5.000 f  
-    D15                                               0.000     5.000 f  clk (IN)
-                         net (fo=0)                   0.000     5.000    U_cw305_dut/U_clocks/clk
-    D15                  IBUF (Prop_ibuf_I_O)         1.437     6.437 f  U_cw305_dut/U_clocks/clkibuf/O
-                         net (fo=1, routed)           1.868     8.305    U_cw305_dut/U_clocks/usb_clk_bufg
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     8.396 f  U_cw305_dut/U_clocks/clkbuf/O
-                         net (fo=1061, routed)        0.133     8.529    U_cw305_dut/U_clocks/clkbuf_0
-    BUFGCTRL_X0Y17       BUFGCTRL                                     f  U_cw305_dut/U_clocks/CCLK_MUX/I1
-                         clock pessimism              0.179     8.708    
-                         clock uncertainty           -0.035     8.673    
-    BUFGCTRL_X0Y17       BUFGCTRL (Setup_bufgctrl_I1_S1)
-                                                     -0.159     8.514    U_cw305_dut/U_clocks/CCLK_MUX
-  -------------------------------------------------------------------
-                         required time                          8.514    
-                         arrival time                          -7.785    
-  -------------------------------------------------------------------
-                         slack                                  0.729    
-
-Slack (MET) :             0.731ns  (required time - arrival time)
-  Source:                 U_cw305_dut/U_reg_aes/O_clksettings_reg[3]/C
+Slack (MET) :             0.426ns  (required time - arrival time)
+  Source:                 U_cw305_dut/U_reg_aes/O_clksettings_reg[0]/C
                             (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            U_cw305_dut/U_clocks/CWOUT_ODDR/CE
                             (falling edge-triggered cell ODDR clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            5.000ns  (clk fall@5.000ns - clk rise@0.000ns)
-  Data Path Delay:        3.932ns  (logic 0.580ns (14.750%)  route 3.352ns (85.250%))
+  Data Path Delay:        4.238ns  (logic 0.580ns (13.684%)  route 3.658ns (86.316%))
   Logic Levels:           1  (LUT3=1)
-  Clock Path Skew:        0.181ns (DCD - SCD + CPR)
+  Clock Path Skew:        0.182ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    5.133ns = ( 10.133 - 5.000 ) 
-    Source Clock Delay      (SCD):    5.132ns
+    Source Clock Delay      (SCD):    5.131ns
     Clock Pessimism Removal (CPR):    0.179ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -287,13 +231,13 @@ Slack (MET) :             0.731ns  (required time - arrival time)
     D15                  IBUF (Prop_ibuf_I_O)         1.508     1.508 r  U_cw305_dut/U_clocks/clkibuf/O
                          net (fo=1, routed)           1.972     3.479    U_cw305_dut/U_clocks/usb_clk_bufg
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.575 r  U_cw305_dut/U_clocks/clkbuf/O
-                         net (fo=1061, routed)        1.556     5.132    U_cw305_dut/U_reg_aes/src_req_reg_0
-    SLICE_X44Y20         FDRE                                         r  U_cw305_dut/U_reg_aes/O_clksettings_reg[3]/C
+                         net (fo=1061, routed)        1.555     5.131    U_cw305_dut/U_reg_aes/src_req_reg_0
+    SLICE_X36Y30         FDRE                                         r  U_cw305_dut/U_reg_aes/O_clksettings_reg[0]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X44Y20         FDRE (Prop_fdre_C_Q)         0.456     5.588 r  U_cw305_dut/U_reg_aes/O_clksettings_reg[3]/Q
-                         net (fo=2, routed)           0.785     6.372    U_cw305_dut/U_clocks/O_clksettings[1]
-    SLICE_X44Y20         LUT3 (Prop_lut3_I0_O)        0.124     6.496 r  U_cw305_dut/U_clocks//i_/O
-                         net (fo=1, routed)           2.568     9.064    U_cw305_dut/U_clocks/cclk_output_ext
+    SLICE_X36Y30         FDRE (Prop_fdre_C_Q)         0.456     5.587 r  U_cw305_dut/U_reg_aes/O_clksettings_reg[0]/Q
+                         net (fo=3, routed)           0.894     6.480    U_cw305_dut/U_clocks/O_clksettings[0]
+    SLICE_X42Y18         LUT3 (Prop_lut3_I2_O)        0.124     6.604 r  U_cw305_dut/U_clocks//i_/O
+                         net (fo=1, routed)           2.765     9.369    U_cw305_dut/U_clocks/cclk_output_ext
     OLOGIC_X0Y82         ODDR                                         r  U_cw305_dut/U_clocks/CWOUT_ODDR/CE
   -------------------------------------------------------------------    -------------------
 
@@ -313,11 +257,11 @@ Slack (MET) :             0.731ns  (required time - arrival time)
     OLOGIC_X0Y82         ODDR (Setup_oddr_C_CE)      -0.482     9.795    U_cw305_dut/U_clocks/CWOUT_ODDR
   -------------------------------------------------------------------
                          required time                          9.795    
-                         arrival time                          -9.064    
+                         arrival time                          -9.369    
   -------------------------------------------------------------------
-                         slack                                  0.731    
+                         slack                                  0.426    
 
-Slack (MET) :             0.834ns  (required time - arrival time)
+Slack (MET) :             0.902ns  (required time - arrival time)
   Source:                 U_cw305_dut/U_reg_aes/O_clksettings_reg[1]/C
                             (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            U_cw305_dut/U_clocks/CCLK_MUX/S0
@@ -325,11 +269,11 @@ Slack (MET) :             0.834ns  (required time - arrival time)
   Path Group:             clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            5.000ns  (clk fall@5.000ns - clk rise@0.000ns)
-  Data Path Delay:        2.558ns  (logic 0.642ns (25.103%)  route 1.916ns (74.897%))
+  Data Path Delay:        2.487ns  (logic 0.580ns (23.320%)  route 1.907ns (76.680%))
   Logic Levels:           1  (LUT3=1)
-  Clock Path Skew:        -1.414ns (DCD - SCD + CPR)
+  Clock Path Skew:        -1.416ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    3.529ns = ( 8.529 - 5.000 ) 
-    Source Clock Delay      (SCD):    5.123ns
+    Source Clock Delay      (SCD):    5.125ns
     Clock Pessimism Removal (CPR):    0.179ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -345,13 +289,13 @@ Slack (MET) :             0.834ns  (required time - arrival time)
     D15                  IBUF (Prop_ibuf_I_O)         1.508     1.508 r  U_cw305_dut/U_clocks/clkibuf/O
                          net (fo=1, routed)           1.972     3.479    U_cw305_dut/U_clocks/usb_clk_bufg
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.575 r  U_cw305_dut/U_clocks/clkbuf/O
-                         net (fo=1061, routed)        1.547     5.123    U_cw305_dut/U_reg_aes/src_req_reg_0
-    SLICE_X38Y24         FDRE                                         r  U_cw305_dut/U_reg_aes/O_clksettings_reg[1]/C
+                         net (fo=1061, routed)        1.549     5.125    U_cw305_dut/U_reg_aes/src_req_reg_0
+    SLICE_X37Y26         FDRE                                         r  U_cw305_dut/U_reg_aes/O_clksettings_reg[1]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X38Y24         FDRE (Prop_fdre_C_Q)         0.518     5.641 r  U_cw305_dut/U_reg_aes/O_clksettings_reg[1]/Q
-                         net (fo=2, routed)           0.814     6.455    U_cw305_dut/U_reg_aes/O_clksettings_reg[4]_0[1]
-    SLICE_X37Y27         LUT3 (Prop_lut3_I0_O)        0.124     6.579 f  U_cw305_dut/U_reg_aes/CCLK_MUX_i_1/O
-                         net (fo=2, routed)           1.101     7.680    U_cw305_dut/U_clocks/cclk_src_is_ext
+    SLICE_X37Y26         FDRE (Prop_fdre_C_Q)         0.456     5.581 r  U_cw305_dut/U_reg_aes/O_clksettings_reg[1]/Q
+                         net (fo=2, routed)           0.703     6.283    U_cw305_dut/U_reg_aes/O_clksettings_reg[4]_0[1]
+    SLICE_X36Y32         LUT3 (Prop_lut3_I0_O)        0.124     6.407 f  U_cw305_dut/U_reg_aes/CCLK_MUX_i_1/O
+                         net (fo=2, routed)           1.204     7.612    U_cw305_dut/U_clocks/cclk_src_is_ext
     BUFGCTRL_X0Y17       BUFGCTRL                                     r  U_cw305_dut/U_clocks/CCLK_MUX/S0  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
 
@@ -369,24 +313,24 @@ Slack (MET) :             0.834ns  (required time - arrival time)
                                                      -0.159     8.514    U_cw305_dut/U_clocks/CCLK_MUX
   -------------------------------------------------------------------
                          required time                          8.514    
-                         arrival time                          -7.680    
+                         arrival time                          -7.612    
   -------------------------------------------------------------------
-                         slack                                  0.834    
+                         slack                                  0.902    
 
-Slack (MET) :             2.985ns  (required time - arrival time)
-  Source:                 U_cw305_dut/U_usb_reg_fe/usb_addr_r_reg[2]/C
+Slack (MET) :             0.936ns  (required time - arrival time)
+  Source:                 U_cw305_dut/U_reg_aes/O_clksettings_reg[1]/C
                             (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            U_cw305_dut/U_reg_aes/read_data_reg[6]/D
-                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            U_cw305_dut/U_clocks/CCLK_MUX/S1
+                            (falling edge-triggered cell BUFGCTRL clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk
   Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
-  Data Path Delay:        6.980ns  (logic 1.362ns (19.514%)  route 5.618ns (80.486%))
-  Logic Levels:           5  (LUT6=3 MUXF7=1 MUXF8=1)
-  Clock Path Skew:        -0.029ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.840ns = ( 14.840 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.128ns
-    Clock Pessimism Removal (CPR):    0.258ns
+  Requirement:            5.000ns  (clk fall@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        2.453ns  (logic 0.580ns (23.643%)  route 1.873ns (76.357%))
+  Logic Levels:           1  (LUT3=1)
+  Clock Path Skew:        -1.416ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.529ns = ( 8.529 - 5.000 ) 
+    Source Clock Delay      (SCD):    5.125ns
+    Clock Pessimism Removal (CPR):    0.179ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -401,53 +345,46 @@ Slack (MET) :             2.985ns  (required time - arrival time)
     D15                  IBUF (Prop_ibuf_I_O)         1.508     1.508 r  U_cw305_dut/U_clocks/clkibuf/O
                          net (fo=1, routed)           1.972     3.479    U_cw305_dut/U_clocks/usb_clk_bufg
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.575 r  U_cw305_dut/U_clocks/clkbuf/O
-                         net (fo=1061, routed)        1.552     5.128    U_cw305_dut/U_usb_reg_fe/usb_cen_r_reg_2
-    SLICE_X45Y22         FDRE                                         r  U_cw305_dut/U_usb_reg_fe/usb_addr_r_reg[2]/C
+                         net (fo=1061, routed)        1.549     5.125    U_cw305_dut/U_reg_aes/src_req_reg_0
+    SLICE_X37Y26         FDRE                                         r  U_cw305_dut/U_reg_aes/O_clksettings_reg[1]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X45Y22         FDRE (Prop_fdre_C_Q)         0.456     5.584 r  U_cw305_dut/U_usb_reg_fe/usb_addr_r_reg[2]/Q
-                         net (fo=184, routed)         3.375     8.959    U_cw305_dut/U_reg_aes/read_data_reg[6]_0[2]
-    SLICE_X63Y1          LUT6 (Prop_lut6_I2_O)        0.124     9.083 r  U_cw305_dut/U_reg_aes/read_data[6]_i_33/O
-                         net (fo=1, routed)           0.000     9.083    U_cw305_dut/U_reg_aes/read_data[6]_i_33_n_0
-    SLICE_X63Y1          MUXF7 (Prop_muxf7_I0_O)      0.238     9.321 r  U_cw305_dut/U_reg_aes/read_data_reg[6]_i_27/O
-                         net (fo=1, routed)           0.000     9.321    U_cw305_dut/U_reg_aes/read_data_reg[6]_i_27_n_0
-    SLICE_X63Y1          MUXF8 (Prop_muxf8_I0_O)      0.104     9.425 r  U_cw305_dut/U_reg_aes/read_data_reg[6]_i_12/O
-                         net (fo=1, routed)           0.850    10.275    U_cw305_dut/U_reg_aes/read_data_reg[6]_i_12_n_0
-    SLICE_X61Y7          LUT6 (Prop_lut6_I4_O)        0.316    10.591 f  U_cw305_dut/U_reg_aes/read_data[6]_i_4/O
-                         net (fo=1, routed)           1.393    11.983    U_cw305_dut/U_usb_reg_fe/read_data_reg[6]_0
-    SLICE_X49Y18         LUT6 (Prop_lut6_I3_O)        0.124    12.107 r  U_cw305_dut/U_usb_reg_fe/read_data[6]_i_1/O
-                         net (fo=1, routed)           0.000    12.107    U_cw305_dut/U_reg_aes/read_data_reg[7]_0[6]
-    SLICE_X49Y18         FDRE                                         r  U_cw305_dut/U_reg_aes/read_data_reg[6]/D
+    SLICE_X37Y26         FDRE (Prop_fdre_C_Q)         0.456     5.581 f  U_cw305_dut/U_reg_aes/O_clksettings_reg[1]/Q
+                         net (fo=2, routed)           0.703     6.283    U_cw305_dut/U_reg_aes/O_clksettings_reg[4]_0[1]
+    SLICE_X36Y32         LUT3 (Prop_lut3_I0_O)        0.124     6.407 r  U_cw305_dut/U_reg_aes/CCLK_MUX_i_1/O
+                         net (fo=2, routed)           1.170     7.578    U_cw305_dut/U_clocks/cclk_src_is_ext
+    BUFGCTRL_X0Y17       BUFGCTRL                                     r  U_cw305_dut/U_clocks/CCLK_MUX/S1
   -------------------------------------------------------------------    -------------------
 
-                         (clock clk rise edge)       10.000    10.000 r  
-    D15                                               0.000    10.000 r  clk (IN)
-                         net (fo=0)                   0.000    10.000    U_cw305_dut/U_clocks/clk
-    D15                  IBUF (Prop_ibuf_I_O)         1.437    11.437 r  U_cw305_dut/U_clocks/clkibuf/O
-                         net (fo=1, routed)           1.868    13.305    U_cw305_dut/U_clocks/usb_clk_bufg
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.396 r  U_cw305_dut/U_clocks/clkbuf/O
-                         net (fo=1061, routed)        1.444    14.840    U_cw305_dut/U_reg_aes/src_req_reg_0
-    SLICE_X49Y18         FDRE                                         r  U_cw305_dut/U_reg_aes/read_data_reg[6]/C
-                         clock pessimism              0.258    15.099    
-                         clock uncertainty           -0.035    15.063    
-    SLICE_X49Y18         FDRE (Setup_fdre_C_D)        0.029    15.092    U_cw305_dut/U_reg_aes/read_data_reg[6]
+                         (clock clk fall edge)        5.000     5.000 f  
+    D15                                               0.000     5.000 f  clk (IN)
+                         net (fo=0)                   0.000     5.000    U_cw305_dut/U_clocks/clk
+    D15                  IBUF (Prop_ibuf_I_O)         1.437     6.437 f  U_cw305_dut/U_clocks/clkibuf/O
+                         net (fo=1, routed)           1.868     8.305    U_cw305_dut/U_clocks/usb_clk_bufg
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     8.396 f  U_cw305_dut/U_clocks/clkbuf/O
+                         net (fo=1061, routed)        0.133     8.529    U_cw305_dut/U_clocks/clkbuf_0
+    BUFGCTRL_X0Y17       BUFGCTRL                                     f  U_cw305_dut/U_clocks/CCLK_MUX/I1
+                         clock pessimism              0.179     8.708    
+                         clock uncertainty           -0.035     8.673    
+    BUFGCTRL_X0Y17       BUFGCTRL (Setup_bufgctrl_I1_S1)
+                                                     -0.159     8.514    U_cw305_dut/U_clocks/CCLK_MUX
   -------------------------------------------------------------------
-                         required time                         15.092    
-                         arrival time                         -12.107    
+                         required time                          8.514    
+                         arrival time                          -7.578    
   -------------------------------------------------------------------
-                         slack                                  2.985    
+                         slack                                  0.936    
 
-Slack (MET) :             3.127ns  (required time - arrival time)
-  Source:                 U_cw305_dut/U_reg_aes/go_r_reg/C
+Slack (MET) :             2.614ns  (required time - arrival time)
+  Source:                 U_cw305_dut/U_reg_aes/go_reg/C
                             (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            U_cw305_dut/aes_core/state_reg[25]/CE
+  Destination:            U_cw305_dut/aes_core/data_o_reg[98]/R
                             (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
-  Data Path Delay:        6.328ns  (logic 0.792ns (12.517%)  route 5.536ns (87.483%))
-  Logic Levels:           2  (LUT2=1 LUT3=1)
-  Clock Path Skew:        -0.101ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.067ns = ( 15.067 - 10.000 ) 
+  Data Path Delay:        6.895ns  (logic 0.580ns (8.412%)  route 6.315ns (91.589%))
+  Logic Levels:           1  (LUT3=1)
+  Clock Path Skew:        -0.026ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.142ns = ( 15.142 - 10.000 ) 
     Source Clock Delay      (SCD):    5.367ns
     Clock Pessimism Removal (CPR):    0.198ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
@@ -468,15 +405,13 @@ Slack (MET) :             3.127ns  (required time - arrival time)
     BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
                                                       0.096     3.811 r  U_cw305_dut/U_clocks/CCLK_MUX/O
                          net (fo=920, routed)         1.555     5.367    U_cw305_dut/U_reg_aes/crypt_clk
-    SLICE_X38Y19         FDRE                                         r  U_cw305_dut/U_reg_aes/go_r_reg/C
+    SLICE_X33Y19         FDRE                                         r  U_cw305_dut/U_reg_aes/go_reg/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X38Y19         FDRE (Prop_fdre_C_Q)         0.518     5.885 f  U_cw305_dut/U_reg_aes/go_r_reg/Q
-                         net (fo=1, routed)           0.661     6.546    U_cw305_dut/U_reg_aes/go_r
-    SLICE_X38Y19         LUT3 (Prop_lut3_I0_O)        0.124     6.670 r  U_cw305_dut/U_reg_aes/O_start/O
-                         net (fo=526, routed)         2.665     9.335    U_cw305_dut/U_reg_aes/U_go_pulse/state_reg[184]
-    SLICE_X56Y13         LUT2 (Prop_lut2_I0_O)        0.150     9.485 r  U_cw305_dut/U_reg_aes/U_go_pulse/state[127]_i_1/O
-                         net (fo=128, routed)         2.209    11.694    U_cw305_dut/aes_core/state_reg[127]_1[0]
-    SLICE_X35Y3          FDRE                                         r  U_cw305_dut/aes_core/state_reg[25]/CE
+    SLICE_X33Y19         FDRE (Prop_fdre_C_Q)         0.456     5.823 r  U_cw305_dut/U_reg_aes/go_reg/Q
+                         net (fo=2, routed)           1.055     6.877    U_cw305_dut/U_reg_aes/go
+    SLICE_X33Y19         LUT3 (Prop_lut3_I1_O)        0.124     7.001 r  U_cw305_dut/U_reg_aes/O_start/O
+                         net (fo=526, routed)         5.260    12.262    U_cw305_dut/aes_core/state[0]
+    SLICE_X58Y0          FDRE                                         r  U_cw305_dut/aes_core/data_o_reg[98]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock clk rise edge)       10.000    10.000 r  
@@ -488,29 +423,29 @@ Slack (MET) :             3.127ns  (required time - arrival time)
                          net (fo=1061, routed)        0.133    13.529    U_cw305_dut/U_clocks/clkbuf_0
     BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
                                                       0.091    13.620 r  U_cw305_dut/U_clocks/CCLK_MUX/O
-                         net (fo=920, routed)         1.447    15.067    U_cw305_dut/aes_core/crypt_clk
-    SLICE_X35Y3          FDRE                                         r  U_cw305_dut/aes_core/state_reg[25]/C
-                         clock pessimism              0.198    15.266    
-                         clock uncertainty           -0.035    15.230    
-    SLICE_X35Y3          FDRE (Setup_fdre_C_CE)      -0.409    14.821    U_cw305_dut/aes_core/state_reg[25]
+                         net (fo=920, routed)         1.522    15.142    U_cw305_dut/aes_core/crypt_clk
+    SLICE_X58Y0          FDRE                                         r  U_cw305_dut/aes_core/data_o_reg[98]/C
+                         clock pessimism              0.198    15.341    
+                         clock uncertainty           -0.035    15.305    
+    SLICE_X58Y0          FDRE (Setup_fdre_C_R)       -0.429    14.876    U_cw305_dut/aes_core/data_o_reg[98]
   -------------------------------------------------------------------
-                         required time                         14.821    
-                         arrival time                         -11.694    
+                         required time                         14.876    
+                         arrival time                         -12.262    
   -------------------------------------------------------------------
-                         slack                                  3.127    
+                         slack                                  2.614    
 
-Slack (MET) :             3.127ns  (required time - arrival time)
-  Source:                 U_cw305_dut/U_reg_aes/go_r_reg/C
+Slack (MET) :             2.665ns  (required time - arrival time)
+  Source:                 U_cw305_dut/U_reg_aes/go_reg/C
                             (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            U_cw305_dut/aes_core/state_reg[27]/CE
+  Destination:            U_cw305_dut/aes_core/data_o_reg[107]/R
                             (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
-  Data Path Delay:        6.328ns  (logic 0.792ns (12.517%)  route 5.536ns (87.483%))
-  Logic Levels:           2  (LUT2=1 LUT3=1)
-  Clock Path Skew:        -0.101ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.067ns = ( 15.067 - 10.000 ) 
+  Data Path Delay:        6.844ns  (logic 0.580ns (8.475%)  route 6.264ns (91.525%))
+  Logic Levels:           1  (LUT3=1)
+  Clock Path Skew:        -0.027ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.141ns = ( 15.141 - 10.000 ) 
     Source Clock Delay      (SCD):    5.367ns
     Clock Pessimism Removal (CPR):    0.198ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
@@ -531,15 +466,13 @@ Slack (MET) :             3.127ns  (required time - arrival time)
     BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
                                                       0.096     3.811 r  U_cw305_dut/U_clocks/CCLK_MUX/O
                          net (fo=920, routed)         1.555     5.367    U_cw305_dut/U_reg_aes/crypt_clk
-    SLICE_X38Y19         FDRE                                         r  U_cw305_dut/U_reg_aes/go_r_reg/C
+    SLICE_X33Y19         FDRE                                         r  U_cw305_dut/U_reg_aes/go_reg/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X38Y19         FDRE (Prop_fdre_C_Q)         0.518     5.885 f  U_cw305_dut/U_reg_aes/go_r_reg/Q
-                         net (fo=1, routed)           0.661     6.546    U_cw305_dut/U_reg_aes/go_r
-    SLICE_X38Y19         LUT3 (Prop_lut3_I0_O)        0.124     6.670 r  U_cw305_dut/U_reg_aes/O_start/O
-                         net (fo=526, routed)         2.665     9.335    U_cw305_dut/U_reg_aes/U_go_pulse/state_reg[184]
-    SLICE_X56Y13         LUT2 (Prop_lut2_I0_O)        0.150     9.485 r  U_cw305_dut/U_reg_aes/U_go_pulse/state[127]_i_1/O
-                         net (fo=128, routed)         2.209    11.694    U_cw305_dut/aes_core/state_reg[127]_1[0]
-    SLICE_X35Y3          FDRE                                         r  U_cw305_dut/aes_core/state_reg[27]/CE
+    SLICE_X33Y19         FDRE (Prop_fdre_C_Q)         0.456     5.823 r  U_cw305_dut/U_reg_aes/go_reg/Q
+                         net (fo=2, routed)           1.055     6.877    U_cw305_dut/U_reg_aes/go
+    SLICE_X33Y19         LUT3 (Prop_lut3_I1_O)        0.124     7.001 r  U_cw305_dut/U_reg_aes/O_start/O
+                         net (fo=526, routed)         5.209    12.210    U_cw305_dut/aes_core/state[0]
+    SLICE_X58Y5          FDRE                                         r  U_cw305_dut/aes_core/data_o_reg[107]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock clk rise edge)       10.000    10.000 r  
@@ -551,93 +484,30 @@ Slack (MET) :             3.127ns  (required time - arrival time)
                          net (fo=1061, routed)        0.133    13.529    U_cw305_dut/U_clocks/clkbuf_0
     BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
                                                       0.091    13.620 r  U_cw305_dut/U_clocks/CCLK_MUX/O
-                         net (fo=920, routed)         1.447    15.067    U_cw305_dut/aes_core/crypt_clk
-    SLICE_X35Y3          FDRE                                         r  U_cw305_dut/aes_core/state_reg[27]/C
-                         clock pessimism              0.198    15.266    
-                         clock uncertainty           -0.035    15.230    
-    SLICE_X35Y3          FDRE (Setup_fdre_C_CE)      -0.409    14.821    U_cw305_dut/aes_core/state_reg[27]
+                         net (fo=920, routed)         1.521    15.141    U_cw305_dut/aes_core/crypt_clk
+    SLICE_X58Y5          FDRE                                         r  U_cw305_dut/aes_core/data_o_reg[107]/C
+                         clock pessimism              0.198    15.340    
+                         clock uncertainty           -0.035    15.304    
+    SLICE_X58Y5          FDRE (Setup_fdre_C_R)       -0.429    14.875    U_cw305_dut/aes_core/data_o_reg[107]
   -------------------------------------------------------------------
-                         required time                         14.821    
-                         arrival time                         -11.694    
+                         required time                         14.875    
+                         arrival time                         -12.210    
   -------------------------------------------------------------------
-                         slack                                  3.127    
+                         slack                                  2.665    
 
-Slack (MET) :             3.128ns  (required time - arrival time)
-  Source:                 U_cw305_dut/U_usb_reg_fe/usb_addr_r_reg[3]/C
+Slack (MET) :             2.665ns  (required time - arrival time)
+  Source:                 U_cw305_dut/U_reg_aes/go_reg/C
                             (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            U_cw305_dut/U_reg_aes/read_data_reg[7]/D
-                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
-  Data Path Delay:        6.835ns  (logic 1.431ns (20.936%)  route 5.404ns (79.064%))
-  Logic Levels:           5  (LUT6=3 MUXF7=1 MUXF8=1)
-  Clock Path Skew:        -0.032ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.839ns = ( 14.839 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.130ns
-    Clock Pessimism Removal (CPR):    0.258ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk rise edge)        0.000     0.000 r  
-    D15                                               0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    U_cw305_dut/U_clocks/clk
-    D15                  IBUF (Prop_ibuf_I_O)         1.508     1.508 r  U_cw305_dut/U_clocks/clkibuf/O
-                         net (fo=1, routed)           1.972     3.479    U_cw305_dut/U_clocks/usb_clk_bufg
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.575 r  U_cw305_dut/U_clocks/clkbuf/O
-                         net (fo=1061, routed)        1.554     5.130    U_cw305_dut/U_usb_reg_fe/usb_cen_r_reg_2
-    SLICE_X42Y21         FDRE                                         r  U_cw305_dut/U_usb_reg_fe/usb_addr_r_reg[3]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X42Y21         FDRE (Prop_fdre_C_Q)         0.518     5.648 r  U_cw305_dut/U_usb_reg_fe/usb_addr_r_reg[3]/Q
-                         net (fo=176, routed)         3.130     8.777    U_cw305_dut/U_reg_aes/read_data_reg[6]_0[3]
-    SLICE_X61Y1          LUT6 (Prop_lut6_I4_O)        0.124     8.901 r  U_cw305_dut/U_reg_aes/read_data[7]_i_37/O
-                         net (fo=1, routed)           0.000     8.901    U_cw305_dut/U_reg_aes/read_data[7]_i_37_n_0
-    SLICE_X61Y1          MUXF7 (Prop_muxf7_I1_O)      0.245     9.146 r  U_cw305_dut/U_reg_aes/read_data_reg[7]_i_30/O
-                         net (fo=1, routed)           0.000     9.146    U_cw305_dut/U_reg_aes/read_data_reg[7]_i_30_n_0
-    SLICE_X61Y1          MUXF8 (Prop_muxf8_I0_O)      0.104     9.250 r  U_cw305_dut/U_reg_aes/read_data_reg[7]_i_15/O
-                         net (fo=1, routed)           0.791    10.042    U_cw305_dut/U_reg_aes/read_data_reg[7]_i_15_n_0
-    SLICE_X58Y5          LUT6 (Prop_lut6_I5_O)        0.316    10.358 f  U_cw305_dut/U_reg_aes/read_data[7]_i_5/O
-                         net (fo=1, routed)           1.483    11.841    U_cw305_dut/U_usb_reg_fe/read_data_reg[7]_0
-    SLICE_X49Y20         LUT6 (Prop_lut6_I3_O)        0.124    11.965 r  U_cw305_dut/U_usb_reg_fe/read_data[7]_i_2/O
-                         net (fo=1, routed)           0.000    11.965    U_cw305_dut/U_reg_aes/read_data_reg[7]_0[7]
-    SLICE_X49Y20         FDRE                                         r  U_cw305_dut/U_reg_aes/read_data_reg[7]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk rise edge)       10.000    10.000 r  
-    D15                                               0.000    10.000 r  clk (IN)
-                         net (fo=0)                   0.000    10.000    U_cw305_dut/U_clocks/clk
-    D15                  IBUF (Prop_ibuf_I_O)         1.437    11.437 r  U_cw305_dut/U_clocks/clkibuf/O
-                         net (fo=1, routed)           1.868    13.305    U_cw305_dut/U_clocks/usb_clk_bufg
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.396 r  U_cw305_dut/U_clocks/clkbuf/O
-                         net (fo=1061, routed)        1.443    14.839    U_cw305_dut/U_reg_aes/src_req_reg_0
-    SLICE_X49Y20         FDRE                                         r  U_cw305_dut/U_reg_aes/read_data_reg[7]/C
-                         clock pessimism              0.258    15.098    
-                         clock uncertainty           -0.035    15.062    
-    SLICE_X49Y20         FDRE (Setup_fdre_C_D)        0.031    15.093    U_cw305_dut/U_reg_aes/read_data_reg[7]
-  -------------------------------------------------------------------
-                         required time                         15.093    
-                         arrival time                         -11.965    
-  -------------------------------------------------------------------
-                         slack                                  3.128    
-
-Slack (MET) :             3.199ns  (required time - arrival time)
-  Source:                 U_cw305_dut/aes_core/round_reg[1]/C
-                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            U_cw305_dut/aes_core/data_o_reg[119]/CE
+  Destination:            U_cw305_dut/aes_core/data_o_reg[114]/R
                             (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
-  Data Path Delay:        6.555ns  (logic 0.704ns (10.740%)  route 5.851ns (89.260%))
-  Logic Levels:           2  (LUT2=1 LUT4=1)
-  Clock Path Skew:        -0.042ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.140ns = ( 15.140 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.381ns
+  Data Path Delay:        6.844ns  (logic 0.580ns (8.475%)  route 6.264ns (91.525%))
+  Logic Levels:           1  (LUT3=1)
+  Clock Path Skew:        -0.027ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.141ns = ( 15.141 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.367ns
     Clock Pessimism Removal (CPR):    0.198ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -656,16 +526,14 @@ Slack (MET) :             3.199ns  (required time - arrival time)
                          net (fo=1061, routed)        0.140     3.715    U_cw305_dut/U_clocks/clkbuf_0
     BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
                                                       0.096     3.811 r  U_cw305_dut/U_clocks/CCLK_MUX/O
-                         net (fo=920, routed)         1.569     5.381    U_cw305_dut/aes_core/crypt_clk
-    SLICE_X29Y0          FDRE                                         r  U_cw305_dut/aes_core/round_reg[1]/C
+                         net (fo=920, routed)         1.555     5.367    U_cw305_dut/U_reg_aes/crypt_clk
+    SLICE_X33Y19         FDRE                                         r  U_cw305_dut/U_reg_aes/go_reg/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X29Y0          FDRE (Prop_fdre_C_Q)         0.456     5.837 r  U_cw305_dut/aes_core/round_reg[1]/Q
-                         net (fo=5, routed)           0.839     6.675    U_cw305_dut/aes_core/round[1]
-    SLICE_X30Y0          LUT4 (Prop_lut4_I1_O)        0.124     6.799 r  U_cw305_dut/aes_core/busy_o_i_2/O
-                         net (fo=130, routed)         1.027     7.826    U_cw305_dut/aes_core/busy_o_i_2_n_0
-    SLICE_X34Y3          LUT2 (Prop_lut2_I1_O)        0.124     7.950 r  U_cw305_dut/aes_core/data_o[127]_i_1/O
-                         net (fo=128, routed)         3.985    11.935    U_cw305_dut/aes_core/data_o[127]_i_1_n_0
-    SLICE_X60Y8          FDRE                                         r  U_cw305_dut/aes_core/data_o_reg[119]/CE
+    SLICE_X33Y19         FDRE (Prop_fdre_C_Q)         0.456     5.823 r  U_cw305_dut/U_reg_aes/go_reg/Q
+                         net (fo=2, routed)           1.055     6.877    U_cw305_dut/U_reg_aes/go
+    SLICE_X33Y19         LUT3 (Prop_lut3_I1_O)        0.124     7.001 r  U_cw305_dut/U_reg_aes/O_start/O
+                         net (fo=526, routed)         5.209    12.210    U_cw305_dut/aes_core/state[0]
+    SLICE_X58Y5          FDRE                                         r  U_cw305_dut/aes_core/data_o_reg[114]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock clk rise edge)       10.000    10.000 r  
@@ -677,30 +545,30 @@ Slack (MET) :             3.199ns  (required time - arrival time)
                          net (fo=1061, routed)        0.133    13.529    U_cw305_dut/U_clocks/clkbuf_0
     BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
                                                       0.091    13.620 r  U_cw305_dut/U_clocks/CCLK_MUX/O
-                         net (fo=920, routed)         1.520    15.140    U_cw305_dut/aes_core/crypt_clk
-    SLICE_X60Y8          FDRE                                         r  U_cw305_dut/aes_core/data_o_reg[119]/C
-                         clock pessimism              0.198    15.339    
-                         clock uncertainty           -0.035    15.303    
-    SLICE_X60Y8          FDRE (Setup_fdre_C_CE)      -0.169    15.134    U_cw305_dut/aes_core/data_o_reg[119]
+                         net (fo=920, routed)         1.521    15.141    U_cw305_dut/aes_core/crypt_clk
+    SLICE_X58Y5          FDRE                                         r  U_cw305_dut/aes_core/data_o_reg[114]/C
+                         clock pessimism              0.198    15.340    
+                         clock uncertainty           -0.035    15.304    
+    SLICE_X58Y5          FDRE (Setup_fdre_C_R)       -0.429    14.875    U_cw305_dut/aes_core/data_o_reg[114]
   -------------------------------------------------------------------
-                         required time                         15.134    
-                         arrival time                         -11.935    
+                         required time                         14.875    
+                         arrival time                         -12.210    
   -------------------------------------------------------------------
-                         slack                                  3.199    
+                         slack                                  2.665    
 
-Slack (MET) :             3.199ns  (required time - arrival time)
-  Source:                 U_cw305_dut/aes_core/round_reg[1]/C
+Slack (MET) :             2.665ns  (required time - arrival time)
+  Source:                 U_cw305_dut/U_reg_aes/go_reg/C
                             (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            U_cw305_dut/aes_core/data_o_reg[15]/CE
+  Destination:            U_cw305_dut/aes_core/data_o_reg[115]/R
                             (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
-  Data Path Delay:        6.555ns  (logic 0.704ns (10.740%)  route 5.851ns (89.260%))
-  Logic Levels:           2  (LUT2=1 LUT4=1)
-  Clock Path Skew:        -0.042ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.140ns = ( 15.140 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.381ns
+  Data Path Delay:        6.844ns  (logic 0.580ns (8.475%)  route 6.264ns (91.525%))
+  Logic Levels:           1  (LUT3=1)
+  Clock Path Skew:        -0.027ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.141ns = ( 15.141 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.367ns
     Clock Pessimism Removal (CPR):    0.198ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -719,16 +587,14 @@ Slack (MET) :             3.199ns  (required time - arrival time)
                          net (fo=1061, routed)        0.140     3.715    U_cw305_dut/U_clocks/clkbuf_0
     BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
                                                       0.096     3.811 r  U_cw305_dut/U_clocks/CCLK_MUX/O
-                         net (fo=920, routed)         1.569     5.381    U_cw305_dut/aes_core/crypt_clk
-    SLICE_X29Y0          FDRE                                         r  U_cw305_dut/aes_core/round_reg[1]/C
+                         net (fo=920, routed)         1.555     5.367    U_cw305_dut/U_reg_aes/crypt_clk
+    SLICE_X33Y19         FDRE                                         r  U_cw305_dut/U_reg_aes/go_reg/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X29Y0          FDRE (Prop_fdre_C_Q)         0.456     5.837 r  U_cw305_dut/aes_core/round_reg[1]/Q
-                         net (fo=5, routed)           0.839     6.675    U_cw305_dut/aes_core/round[1]
-    SLICE_X30Y0          LUT4 (Prop_lut4_I1_O)        0.124     6.799 r  U_cw305_dut/aes_core/busy_o_i_2/O
-                         net (fo=130, routed)         1.027     7.826    U_cw305_dut/aes_core/busy_o_i_2_n_0
-    SLICE_X34Y3          LUT2 (Prop_lut2_I1_O)        0.124     7.950 r  U_cw305_dut/aes_core/data_o[127]_i_1/O
-                         net (fo=128, routed)         3.985    11.935    U_cw305_dut/aes_core/data_o[127]_i_1_n_0
-    SLICE_X60Y8          FDRE                                         r  U_cw305_dut/aes_core/data_o_reg[15]/CE
+    SLICE_X33Y19         FDRE (Prop_fdre_C_Q)         0.456     5.823 r  U_cw305_dut/U_reg_aes/go_reg/Q
+                         net (fo=2, routed)           1.055     6.877    U_cw305_dut/U_reg_aes/go
+    SLICE_X33Y19         LUT3 (Prop_lut3_I1_O)        0.124     7.001 r  U_cw305_dut/U_reg_aes/O_start/O
+                         net (fo=526, routed)         5.209    12.210    U_cw305_dut/aes_core/state[0]
+    SLICE_X58Y5          FDRE                                         r  U_cw305_dut/aes_core/data_o_reg[115]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock clk rise edge)       10.000    10.000 r  
@@ -740,30 +606,30 @@ Slack (MET) :             3.199ns  (required time - arrival time)
                          net (fo=1061, routed)        0.133    13.529    U_cw305_dut/U_clocks/clkbuf_0
     BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
                                                       0.091    13.620 r  U_cw305_dut/U_clocks/CCLK_MUX/O
-                         net (fo=920, routed)         1.520    15.140    U_cw305_dut/aes_core/crypt_clk
-    SLICE_X60Y8          FDRE                                         r  U_cw305_dut/aes_core/data_o_reg[15]/C
-                         clock pessimism              0.198    15.339    
-                         clock uncertainty           -0.035    15.303    
-    SLICE_X60Y8          FDRE (Setup_fdre_C_CE)      -0.169    15.134    U_cw305_dut/aes_core/data_o_reg[15]
+                         net (fo=920, routed)         1.521    15.141    U_cw305_dut/aes_core/crypt_clk
+    SLICE_X58Y5          FDRE                                         r  U_cw305_dut/aes_core/data_o_reg[115]/C
+                         clock pessimism              0.198    15.340    
+                         clock uncertainty           -0.035    15.304    
+    SLICE_X58Y5          FDRE (Setup_fdre_C_R)       -0.429    14.875    U_cw305_dut/aes_core/data_o_reg[115]
   -------------------------------------------------------------------
-                         required time                         15.134    
-                         arrival time                         -11.935    
+                         required time                         14.875    
+                         arrival time                         -12.210    
   -------------------------------------------------------------------
-                         slack                                  3.199    
+                         slack                                  2.665    
 
-Slack (MET) :             3.199ns  (required time - arrival time)
-  Source:                 U_cw305_dut/aes_core/round_reg[1]/C
+Slack (MET) :             2.665ns  (required time - arrival time)
+  Source:                 U_cw305_dut/U_reg_aes/go_reg/C
                             (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            U_cw305_dut/aes_core/data_o_reg[54]/CE
+  Destination:            U_cw305_dut/aes_core/data_o_reg[122]/R
                             (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
-  Data Path Delay:        6.555ns  (logic 0.704ns (10.740%)  route 5.851ns (89.260%))
-  Logic Levels:           2  (LUT2=1 LUT4=1)
-  Clock Path Skew:        -0.042ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.140ns = ( 15.140 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.381ns
+  Data Path Delay:        6.844ns  (logic 0.580ns (8.475%)  route 6.264ns (91.525%))
+  Logic Levels:           1  (LUT3=1)
+  Clock Path Skew:        -0.027ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.141ns = ( 15.141 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.367ns
     Clock Pessimism Removal (CPR):    0.198ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -782,16 +648,14 @@ Slack (MET) :             3.199ns  (required time - arrival time)
                          net (fo=1061, routed)        0.140     3.715    U_cw305_dut/U_clocks/clkbuf_0
     BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
                                                       0.096     3.811 r  U_cw305_dut/U_clocks/CCLK_MUX/O
-                         net (fo=920, routed)         1.569     5.381    U_cw305_dut/aes_core/crypt_clk
-    SLICE_X29Y0          FDRE                                         r  U_cw305_dut/aes_core/round_reg[1]/C
+                         net (fo=920, routed)         1.555     5.367    U_cw305_dut/U_reg_aes/crypt_clk
+    SLICE_X33Y19         FDRE                                         r  U_cw305_dut/U_reg_aes/go_reg/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X29Y0          FDRE (Prop_fdre_C_Q)         0.456     5.837 r  U_cw305_dut/aes_core/round_reg[1]/Q
-                         net (fo=5, routed)           0.839     6.675    U_cw305_dut/aes_core/round[1]
-    SLICE_X30Y0          LUT4 (Prop_lut4_I1_O)        0.124     6.799 r  U_cw305_dut/aes_core/busy_o_i_2/O
-                         net (fo=130, routed)         1.027     7.826    U_cw305_dut/aes_core/busy_o_i_2_n_0
-    SLICE_X34Y3          LUT2 (Prop_lut2_I1_O)        0.124     7.950 r  U_cw305_dut/aes_core/data_o[127]_i_1/O
-                         net (fo=128, routed)         3.985    11.935    U_cw305_dut/aes_core/data_o[127]_i_1_n_0
-    SLICE_X60Y8          FDRE                                         r  U_cw305_dut/aes_core/data_o_reg[54]/CE
+    SLICE_X33Y19         FDRE (Prop_fdre_C_Q)         0.456     5.823 r  U_cw305_dut/U_reg_aes/go_reg/Q
+                         net (fo=2, routed)           1.055     6.877    U_cw305_dut/U_reg_aes/go
+    SLICE_X33Y19         LUT3 (Prop_lut3_I1_O)        0.124     7.001 r  U_cw305_dut/U_reg_aes/O_start/O
+                         net (fo=526, routed)         5.209    12.210    U_cw305_dut/aes_core/state[0]
+    SLICE_X58Y5          FDRE                                         r  U_cw305_dut/aes_core/data_o_reg[122]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock clk rise edge)       10.000    10.000 r  
@@ -803,16 +667,138 @@ Slack (MET) :             3.199ns  (required time - arrival time)
                          net (fo=1061, routed)        0.133    13.529    U_cw305_dut/U_clocks/clkbuf_0
     BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
                                                       0.091    13.620 r  U_cw305_dut/U_clocks/CCLK_MUX/O
-                         net (fo=920, routed)         1.520    15.140    U_cw305_dut/aes_core/crypt_clk
-    SLICE_X60Y8          FDRE                                         r  U_cw305_dut/aes_core/data_o_reg[54]/C
-                         clock pessimism              0.198    15.339    
-                         clock uncertainty           -0.035    15.303    
-    SLICE_X60Y8          FDRE (Setup_fdre_C_CE)      -0.169    15.134    U_cw305_dut/aes_core/data_o_reg[54]
+                         net (fo=920, routed)         1.521    15.141    U_cw305_dut/aes_core/crypt_clk
+    SLICE_X58Y5          FDRE                                         r  U_cw305_dut/aes_core/data_o_reg[122]/C
+                         clock pessimism              0.198    15.340    
+                         clock uncertainty           -0.035    15.304    
+    SLICE_X58Y5          FDRE (Setup_fdre_C_R)       -0.429    14.875    U_cw305_dut/aes_core/data_o_reg[122]
   -------------------------------------------------------------------
-                         required time                         15.134    
-                         arrival time                         -11.935    
+                         required time                         14.875    
+                         arrival time                         -12.210    
   -------------------------------------------------------------------
-                         slack                                  3.199    
+                         slack                                  2.665    
+
+Slack (MET) :             2.665ns  (required time - arrival time)
+  Source:                 U_cw305_dut/U_reg_aes/go_reg/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            U_cw305_dut/aes_core/data_o_reg[3]/R
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        6.844ns  (logic 0.580ns (8.475%)  route 6.264ns (91.525%))
+  Logic Levels:           1  (LUT3=1)
+  Clock Path Skew:        -0.027ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.141ns = ( 15.141 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.367ns
+    Clock Pessimism Removal (CPR):    0.198ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    D15                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    U_cw305_dut/U_clocks/clk
+    D15                  IBUF (Prop_ibuf_I_O)         1.508     1.508 r  U_cw305_dut/U_clocks/clkibuf/O
+                         net (fo=1, routed)           1.972     3.479    U_cw305_dut/U_clocks/usb_clk_bufg
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.575 r  U_cw305_dut/U_clocks/clkbuf/O
+                         net (fo=1061, routed)        0.140     3.715    U_cw305_dut/U_clocks/clkbuf_0
+    BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
+                                                      0.096     3.811 r  U_cw305_dut/U_clocks/CCLK_MUX/O
+                         net (fo=920, routed)         1.555     5.367    U_cw305_dut/U_reg_aes/crypt_clk
+    SLICE_X33Y19         FDRE                                         r  U_cw305_dut/U_reg_aes/go_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X33Y19         FDRE (Prop_fdre_C_Q)         0.456     5.823 r  U_cw305_dut/U_reg_aes/go_reg/Q
+                         net (fo=2, routed)           1.055     6.877    U_cw305_dut/U_reg_aes/go
+    SLICE_X33Y19         LUT3 (Prop_lut3_I1_O)        0.124     7.001 r  U_cw305_dut/U_reg_aes/O_start/O
+                         net (fo=526, routed)         5.209    12.210    U_cw305_dut/aes_core/state[0]
+    SLICE_X58Y5          FDRE                                         r  U_cw305_dut/aes_core/data_o_reg[3]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  
+    D15                                               0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    U_cw305_dut/U_clocks/clk
+    D15                  IBUF (Prop_ibuf_I_O)         1.437    11.437 r  U_cw305_dut/U_clocks/clkibuf/O
+                         net (fo=1, routed)           1.868    13.305    U_cw305_dut/U_clocks/usb_clk_bufg
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.396 r  U_cw305_dut/U_clocks/clkbuf/O
+                         net (fo=1061, routed)        0.133    13.529    U_cw305_dut/U_clocks/clkbuf_0
+    BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
+                                                      0.091    13.620 r  U_cw305_dut/U_clocks/CCLK_MUX/O
+                         net (fo=920, routed)         1.521    15.141    U_cw305_dut/aes_core/crypt_clk
+    SLICE_X58Y5          FDRE                                         r  U_cw305_dut/aes_core/data_o_reg[3]/C
+                         clock pessimism              0.198    15.340    
+                         clock uncertainty           -0.035    15.304    
+    SLICE_X58Y5          FDRE (Setup_fdre_C_R)       -0.429    14.875    U_cw305_dut/aes_core/data_o_reg[3]
+  -------------------------------------------------------------------
+                         required time                         14.875    
+                         arrival time                         -12.210    
+  -------------------------------------------------------------------
+                         slack                                  2.665    
+
+Slack (MET) :             2.665ns  (required time - arrival time)
+  Source:                 U_cw305_dut/U_reg_aes/go_reg/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            U_cw305_dut/aes_core/data_o_reg[75]/R
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        6.844ns  (logic 0.580ns (8.475%)  route 6.264ns (91.525%))
+  Logic Levels:           1  (LUT3=1)
+  Clock Path Skew:        -0.027ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.141ns = ( 15.141 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.367ns
+    Clock Pessimism Removal (CPR):    0.198ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    D15                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    U_cw305_dut/U_clocks/clk
+    D15                  IBUF (Prop_ibuf_I_O)         1.508     1.508 r  U_cw305_dut/U_clocks/clkibuf/O
+                         net (fo=1, routed)           1.972     3.479    U_cw305_dut/U_clocks/usb_clk_bufg
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.575 r  U_cw305_dut/U_clocks/clkbuf/O
+                         net (fo=1061, routed)        0.140     3.715    U_cw305_dut/U_clocks/clkbuf_0
+    BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
+                                                      0.096     3.811 r  U_cw305_dut/U_clocks/CCLK_MUX/O
+                         net (fo=920, routed)         1.555     5.367    U_cw305_dut/U_reg_aes/crypt_clk
+    SLICE_X33Y19         FDRE                                         r  U_cw305_dut/U_reg_aes/go_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X33Y19         FDRE (Prop_fdre_C_Q)         0.456     5.823 r  U_cw305_dut/U_reg_aes/go_reg/Q
+                         net (fo=2, routed)           1.055     6.877    U_cw305_dut/U_reg_aes/go
+    SLICE_X33Y19         LUT3 (Prop_lut3_I1_O)        0.124     7.001 r  U_cw305_dut/U_reg_aes/O_start/O
+                         net (fo=526, routed)         5.209    12.210    U_cw305_dut/aes_core/state[0]
+    SLICE_X58Y5          FDRE                                         r  U_cw305_dut/aes_core/data_o_reg[75]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  
+    D15                                               0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    U_cw305_dut/U_clocks/clk
+    D15                  IBUF (Prop_ibuf_I_O)         1.437    11.437 r  U_cw305_dut/U_clocks/clkibuf/O
+                         net (fo=1, routed)           1.868    13.305    U_cw305_dut/U_clocks/usb_clk_bufg
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.396 r  U_cw305_dut/U_clocks/clkbuf/O
+                         net (fo=1061, routed)        0.133    13.529    U_cw305_dut/U_clocks/clkbuf_0
+    BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
+                                                      0.091    13.620 r  U_cw305_dut/U_clocks/CCLK_MUX/O
+                         net (fo=920, routed)         1.521    15.141    U_cw305_dut/aes_core/crypt_clk
+    SLICE_X58Y5          FDRE                                         r  U_cw305_dut/aes_core/data_o_reg[75]/C
+                         clock pessimism              0.198    15.340    
+                         clock uncertainty           -0.035    15.304    
+    SLICE_X58Y5          FDRE (Setup_fdre_C_R)       -0.429    14.875    U_cw305_dut/aes_core/data_o_reg[75]
+  -------------------------------------------------------------------
+                         required time                         14.875    
+                         arrival time                         -12.210    
+  -------------------------------------------------------------------
+                         slack                                  2.665    
 
 
 
@@ -820,118 +806,18 @@ Slack (MET) :             3.199ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.012ns  (arrival time - required time)
-  Source:                 U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[115]/C
+Slack (MET) :             0.016ns  (arrival time - required time)
+  Source:                 U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[24]/C
                             (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[115]/D
-                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk rise@0.000ns - clk rise@0.000ns)
-  Data Path Delay:        0.294ns  (logic 0.141ns (48.002%)  route 0.153ns (51.998%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.212ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.015ns
-    Source Clock Delay      (SCD):    1.557ns
-    Clock Pessimism Removal (CPR):    0.246ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk rise edge)        0.000     0.000 r  
-    D15                                               0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    U_cw305_dut/U_clocks/clk
-    D15                  IBUF (Prop_ibuf_I_O)         0.275     0.275 r  U_cw305_dut/U_clocks/clkibuf/O
-                         net (fo=1, routed)           0.634     0.909    U_cw305_dut/U_clocks/usb_clk_bufg
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.935 r  U_cw305_dut/U_clocks/clkbuf/O
-                         net (fo=1061, routed)        0.030     0.965    U_cw305_dut/U_clocks/clkbuf_0
-    BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
-                                                      0.026     0.991 r  U_cw305_dut/U_clocks/CCLK_MUX/O
-                         net (fo=920, routed)         0.566     1.557    U_cw305_dut/U_reg_aes/crypt_clk
-    SLICE_X37Y2          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[115]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X37Y2          FDRE (Prop_fdre_C_Q)         0.141     1.698 r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[115]/Q
-                         net (fo=1, routed)           0.153     1.851    U_cw305_dut/U_reg_aes/reg_crypt_cipherout[115]
-    SLICE_X35Y1          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[115]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk rise edge)        0.000     0.000 r  
-    D15                                               0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    U_cw305_dut/U_clocks/clk
-    D15                  IBUF (Prop_ibuf_I_O)         0.463     0.463 r  U_cw305_dut/U_clocks/clkibuf/O
-                         net (fo=1, routed)           0.689     1.152    U_cw305_dut/U_clocks/usb_clk_bufg
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.181 r  U_cw305_dut/U_clocks/clkbuf/O
-                         net (fo=1061, routed)        0.834     2.015    U_cw305_dut/U_reg_aes/src_req_reg_0
-    SLICE_X35Y1          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[115]/C
-                         clock pessimism             -0.246     1.769    
-    SLICE_X35Y1          FDRE (Hold_fdre_C_D)         0.070     1.839    U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[115]
-  -------------------------------------------------------------------
-                         required time                         -1.839    
-                         arrival time                           1.851    
-  -------------------------------------------------------------------
-                         slack                                  0.012    
-
-Slack (MET) :             0.021ns  (arrival time - required time)
-  Source:                 U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[82]/C
-                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[82]/D
+  Destination:            U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[24]/D
                             (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk rise@0.000ns - clk rise@0.000ns)
-  Data Path Delay:        0.307ns  (logic 0.141ns (45.946%)  route 0.166ns (54.054%))
+  Data Path Delay:        0.306ns  (logic 0.164ns (53.541%)  route 0.142ns (46.459%))
   Logic Levels:           0  
   Clock Path Skew:        0.214ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.048ns
-    Source Clock Delay      (SCD):    1.588ns
-    Clock Pessimism Removal (CPR):    0.246ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk rise edge)        0.000     0.000 r  
-    D15                                               0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    U_cw305_dut/U_clocks/clk
-    D15                  IBUF (Prop_ibuf_I_O)         0.275     0.275 r  U_cw305_dut/U_clocks/clkibuf/O
-                         net (fo=1, routed)           0.634     0.909    U_cw305_dut/U_clocks/usb_clk_bufg
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.935 r  U_cw305_dut/U_clocks/clkbuf/O
-                         net (fo=1061, routed)        0.030     0.965    U_cw305_dut/U_clocks/clkbuf_0
-    BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
-                                                      0.026     0.991 r  U_cw305_dut/U_clocks/CCLK_MUX/O
-                         net (fo=920, routed)         0.597     1.588    U_cw305_dut/U_reg_aes/crypt_clk
-    SLICE_X59Y0          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[82]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X59Y0          FDRE (Prop_fdre_C_Q)         0.141     1.729 r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[82]/Q
-                         net (fo=1, routed)           0.166     1.895    U_cw305_dut/U_reg_aes/reg_crypt_cipherout[82]
-    SLICE_X59Y1          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[82]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk rise edge)        0.000     0.000 r  
-    D15                                               0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    U_cw305_dut/U_clocks/clk
-    D15                  IBUF (Prop_ibuf_I_O)         0.463     0.463 r  U_cw305_dut/U_clocks/clkibuf/O
-                         net (fo=1, routed)           0.689     1.152    U_cw305_dut/U_clocks/usb_clk_bufg
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.181 r  U_cw305_dut/U_clocks/clkbuf/O
-                         net (fo=1061, routed)        0.867     2.048    U_cw305_dut/U_reg_aes/src_req_reg_0
-    SLICE_X59Y1          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[82]/C
-                         clock pessimism             -0.246     1.802    
-    SLICE_X59Y1          FDRE (Hold_fdre_C_D)         0.072     1.874    U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[82]
-  -------------------------------------------------------------------
-                         required time                         -1.874    
-                         arrival time                           1.895    
-  -------------------------------------------------------------------
-                         slack                                  0.021    
-
-Slack (MET) :             0.021ns  (arrival time - required time)
-  Source:                 U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[26]/C
-                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[26]/D
-                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk rise@0.000ns - clk rise@0.000ns)
-  Data Path Delay:        0.306ns  (logic 0.141ns (46.095%)  route 0.165ns (53.905%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.215ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.021ns
+    Destination Clock Delay (DCD):    2.020ns
     Source Clock Delay      (SCD):    1.560ns
     Clock Pessimism Removal (CPR):    0.246ns
 
@@ -947,211 +833,11 @@ Slack (MET) :             0.021ns  (arrival time - required time)
     BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
                                                       0.026     0.991 r  U_cw305_dut/U_clocks/CCLK_MUX/O
                          net (fo=920, routed)         0.569     1.560    U_cw305_dut/U_reg_aes/crypt_clk
-    SLICE_X48Y2          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[26]/C
+    SLICE_X56Y7          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[24]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X48Y2          FDRE (Prop_fdre_C_Q)         0.141     1.701 r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[26]/Q
-                         net (fo=1, routed)           0.165     1.866    U_cw305_dut/U_reg_aes/reg_crypt_cipherout[26]
-    SLICE_X53Y2          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[26]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk rise edge)        0.000     0.000 r  
-    D15                                               0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    U_cw305_dut/U_clocks/clk
-    D15                  IBUF (Prop_ibuf_I_O)         0.463     0.463 r  U_cw305_dut/U_clocks/clkibuf/O
-                         net (fo=1, routed)           0.689     1.152    U_cw305_dut/U_clocks/usb_clk_bufg
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.181 r  U_cw305_dut/U_clocks/clkbuf/O
-                         net (fo=1061, routed)        0.840     2.021    U_cw305_dut/U_reg_aes/src_req_reg_0
-    SLICE_X53Y2          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[26]/C
-                         clock pessimism             -0.246     1.775    
-    SLICE_X53Y2          FDRE (Hold_fdre_C_D)         0.070     1.845    U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[26]
-  -------------------------------------------------------------------
-                         required time                         -1.845    
-                         arrival time                           1.866    
-  -------------------------------------------------------------------
-                         slack                                  0.021    
-
-Slack (MET) :             0.022ns  (arrival time - required time)
-  Source:                 U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[8]/C
-                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[8]/D
-                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk rise@0.000ns - clk rise@0.000ns)
-  Data Path Delay:        0.301ns  (logic 0.141ns (46.790%)  route 0.160ns (53.210%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.216ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.021ns
-    Source Clock Delay      (SCD):    1.559ns
-    Clock Pessimism Removal (CPR):    0.246ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk rise edge)        0.000     0.000 r  
-    D15                                               0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    U_cw305_dut/U_clocks/clk
-    D15                  IBUF (Prop_ibuf_I_O)         0.275     0.275 r  U_cw305_dut/U_clocks/clkibuf/O
-                         net (fo=1, routed)           0.634     0.909    U_cw305_dut/U_clocks/usb_clk_bufg
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.935 r  U_cw305_dut/U_clocks/clkbuf/O
-                         net (fo=1061, routed)        0.030     0.965    U_cw305_dut/U_clocks/clkbuf_0
-    BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
-                                                      0.026     0.991 r  U_cw305_dut/U_clocks/CCLK_MUX/O
-                         net (fo=920, routed)         0.568     1.559    U_cw305_dut/U_reg_aes/crypt_clk
-    SLICE_X49Y3          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[8]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X49Y3          FDRE (Prop_fdre_C_Q)         0.141     1.700 r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[8]/Q
-                         net (fo=1, routed)           0.160     1.860    U_cw305_dut/U_reg_aes/reg_crypt_cipherout[8]
-    SLICE_X52Y1          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[8]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk rise edge)        0.000     0.000 r  
-    D15                                               0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    U_cw305_dut/U_clocks/clk
-    D15                  IBUF (Prop_ibuf_I_O)         0.463     0.463 r  U_cw305_dut/U_clocks/clkibuf/O
-                         net (fo=1, routed)           0.689     1.152    U_cw305_dut/U_clocks/usb_clk_bufg
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.181 r  U_cw305_dut/U_clocks/clkbuf/O
-                         net (fo=1061, routed)        0.840     2.021    U_cw305_dut/U_reg_aes/src_req_reg_0
-    SLICE_X52Y1          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[8]/C
-                         clock pessimism             -0.246     1.775    
-    SLICE_X52Y1          FDRE (Hold_fdre_C_D)         0.063     1.838    U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[8]
-  -------------------------------------------------------------------
-                         required time                         -1.838    
-                         arrival time                           1.860    
-  -------------------------------------------------------------------
-                         slack                                  0.022    
-
-Slack (MET) :             0.025ns  (arrival time - required time)
-  Source:                 U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[35]/C
-                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[35]/D
-                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk rise@0.000ns - clk rise@0.000ns)
-  Data Path Delay:        0.297ns  (logic 0.141ns (47.494%)  route 0.156ns (52.506%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.213ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.016ns
-    Source Clock Delay      (SCD):    1.557ns
-    Clock Pessimism Removal (CPR):    0.246ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk rise edge)        0.000     0.000 r  
-    D15                                               0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    U_cw305_dut/U_clocks/clk
-    D15                  IBUF (Prop_ibuf_I_O)         0.275     0.275 r  U_cw305_dut/U_clocks/clkibuf/O
-                         net (fo=1, routed)           0.634     0.909    U_cw305_dut/U_clocks/usb_clk_bufg
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.935 r  U_cw305_dut/U_clocks/clkbuf/O
-                         net (fo=1061, routed)        0.030     0.965    U_cw305_dut/U_clocks/clkbuf_0
-    BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
-                                                      0.026     0.991 r  U_cw305_dut/U_clocks/CCLK_MUX/O
-                         net (fo=920, routed)         0.566     1.557    U_cw305_dut/U_reg_aes/crypt_clk
-    SLICE_X37Y2          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[35]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X37Y2          FDRE (Prop_fdre_C_Q)         0.141     1.698 r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[35]/Q
-                         net (fo=1, routed)           0.156     1.854    U_cw305_dut/U_reg_aes/reg_crypt_cipherout[35]
-    SLICE_X38Y2          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[35]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk rise edge)        0.000     0.000 r  
-    D15                                               0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    U_cw305_dut/U_clocks/clk
-    D15                  IBUF (Prop_ibuf_I_O)         0.463     0.463 r  U_cw305_dut/U_clocks/clkibuf/O
-                         net (fo=1, routed)           0.689     1.152    U_cw305_dut/U_clocks/usb_clk_bufg
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.181 r  U_cw305_dut/U_clocks/clkbuf/O
-                         net (fo=1061, routed)        0.835     2.016    U_cw305_dut/U_reg_aes/src_req_reg_0
-    SLICE_X38Y2          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[35]/C
-                         clock pessimism             -0.246     1.770    
-    SLICE_X38Y2          FDRE (Hold_fdre_C_D)         0.059     1.829    U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[35]
-  -------------------------------------------------------------------
-                         required time                         -1.829    
-                         arrival time                           1.854    
-  -------------------------------------------------------------------
-                         slack                                  0.025    
-
-Slack (MET) :             0.027ns  (arrival time - required time)
-  Source:                 U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[52]/C
-                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[52]/D
-                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk rise@0.000ns - clk rise@0.000ns)
-  Data Path Delay:        0.311ns  (logic 0.141ns (45.298%)  route 0.170ns (54.702%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.214ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.016ns
-    Source Clock Delay      (SCD):    1.556ns
-    Clock Pessimism Removal (CPR):    0.246ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk rise edge)        0.000     0.000 r  
-    D15                                               0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    U_cw305_dut/U_clocks/clk
-    D15                  IBUF (Prop_ibuf_I_O)         0.275     0.275 r  U_cw305_dut/U_clocks/clkibuf/O
-                         net (fo=1, routed)           0.634     0.909    U_cw305_dut/U_clocks/usb_clk_bufg
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.935 r  U_cw305_dut/U_clocks/clkbuf/O
-                         net (fo=1061, routed)        0.030     0.965    U_cw305_dut/U_clocks/clkbuf_0
-    BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
-                                                      0.026     0.991 r  U_cw305_dut/U_clocks/CCLK_MUX/O
-                         net (fo=920, routed)         0.565     1.556    U_cw305_dut/U_reg_aes/crypt_clk
-    SLICE_X29Y5          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[52]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X29Y5          FDRE (Prop_fdre_C_Q)         0.141     1.697 r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[52]/Q
-                         net (fo=1, routed)           0.170     1.867    U_cw305_dut/U_reg_aes/reg_crypt_cipherout[52]
-    SLICE_X29Y4          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[52]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk rise edge)        0.000     0.000 r  
-    D15                                               0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    U_cw305_dut/U_clocks/clk
-    D15                  IBUF (Prop_ibuf_I_O)         0.463     0.463 r  U_cw305_dut/U_clocks/clkibuf/O
-                         net (fo=1, routed)           0.689     1.152    U_cw305_dut/U_clocks/usb_clk_bufg
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.181 r  U_cw305_dut/U_clocks/clkbuf/O
-                         net (fo=1061, routed)        0.835     2.016    U_cw305_dut/U_reg_aes/src_req_reg_0
-    SLICE_X29Y4          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[52]/C
-                         clock pessimism             -0.246     1.770    
-    SLICE_X29Y4          FDRE (Hold_fdre_C_D)         0.070     1.840    U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[52]
-  -------------------------------------------------------------------
-                         required time                         -1.840    
-                         arrival time                           1.867    
-  -------------------------------------------------------------------
-                         slack                                  0.027    
-
-Slack (MET) :             0.027ns  (arrival time - required time)
-  Source:                 U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[42]/C
-                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[42]/D
-                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk rise@0.000ns - clk rise@0.000ns)
-  Data Path Delay:        0.289ns  (logic 0.141ns (48.737%)  route 0.148ns (51.263%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.215ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.020ns
-    Source Clock Delay      (SCD):    1.559ns
-    Clock Pessimism Removal (CPR):    0.246ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk rise edge)        0.000     0.000 r  
-    D15                                               0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    U_cw305_dut/U_clocks/clk
-    D15                  IBUF (Prop_ibuf_I_O)         0.275     0.275 r  U_cw305_dut/U_clocks/clkibuf/O
-                         net (fo=1, routed)           0.634     0.909    U_cw305_dut/U_clocks/usb_clk_bufg
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.935 r  U_cw305_dut/U_clocks/clkbuf/O
-                         net (fo=1061, routed)        0.030     0.965    U_cw305_dut/U_clocks/clkbuf_0
-    BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
-                                                      0.026     0.991 r  U_cw305_dut/U_clocks/CCLK_MUX/O
-                         net (fo=920, routed)         0.568     1.559    U_cw305_dut/U_reg_aes/crypt_clk
-    SLICE_X51Y3          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[42]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X51Y3          FDRE (Prop_fdre_C_Q)         0.141     1.700 r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[42]/Q
-                         net (fo=1, routed)           0.148     1.848    U_cw305_dut/U_reg_aes/reg_crypt_cipherout[42]
-    SLICE_X53Y3          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[42]/D
+    SLICE_X56Y7          FDRE (Prop_fdre_C_Q)         0.164     1.724 r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[24]/Q
+                         net (fo=1, routed)           0.142     1.866    U_cw305_dut/U_reg_aes/reg_crypt_cipherout[24]
+    SLICE_X56Y6          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[24]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk rise edge)        0.000     0.000 r  
@@ -1161,24 +847,24 @@ Slack (MET) :             0.027ns  (arrival time - required time)
                          net (fo=1, routed)           0.689     1.152    U_cw305_dut/U_clocks/usb_clk_bufg
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.181 r  U_cw305_dut/U_clocks/clkbuf/O
                          net (fo=1061, routed)        0.839     2.020    U_cw305_dut/U_reg_aes/src_req_reg_0
-    SLICE_X53Y3          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[42]/C
+    SLICE_X56Y6          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[24]/C
                          clock pessimism             -0.246     1.774    
-    SLICE_X53Y3          FDRE (Hold_fdre_C_D)         0.047     1.821    U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[42]
+    SLICE_X56Y6          FDRE (Hold_fdre_C_D)         0.076     1.850    U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[24]
   -------------------------------------------------------------------
-                         required time                         -1.821    
-                         arrival time                           1.848    
+                         required time                         -1.850    
+                         arrival time                           1.866    
   -------------------------------------------------------------------
-                         slack                                  0.027    
+                         slack                                  0.016    
 
-Slack (MET) :             0.028ns  (arrival time - required time)
-  Source:                 U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[37]/C
+Slack (MET) :             0.018ns  (arrival time - required time)
+  Source:                 U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[11]/C
                             (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[37]/D
+  Destination:            U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[11]/D
                             (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk rise@0.000ns - clk rise@0.000ns)
-  Data Path Delay:        0.294ns  (logic 0.141ns (47.936%)  route 0.153ns (52.064%))
+  Data Path Delay:        0.302ns  (logic 0.141ns (46.764%)  route 0.161ns (53.236%))
   Logic Levels:           0  
   Clock Path Skew:        0.214ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    2.047ns
@@ -1197,11 +883,11 @@ Slack (MET) :             0.028ns  (arrival time - required time)
     BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
                                                       0.026     0.991 r  U_cw305_dut/U_clocks/CCLK_MUX/O
                          net (fo=920, routed)         0.596     1.587    U_cw305_dut/U_reg_aes/crypt_clk
-    SLICE_X59Y3          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[37]/C
+    SLICE_X59Y4          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[11]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X59Y3          FDRE (Prop_fdre_C_Q)         0.141     1.728 r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[37]/Q
-                         net (fo=1, routed)           0.153     1.881    U_cw305_dut/U_reg_aes/reg_crypt_cipherout[37]
-    SLICE_X60Y3          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[37]/D
+    SLICE_X59Y4          FDRE (Prop_fdre_C_Q)         0.141     1.728 r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[11]/Q
+                         net (fo=1, routed)           0.161     1.888    U_cw305_dut/U_reg_aes/reg_crypt_cipherout[11]
+    SLICE_X61Y3          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[11]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk rise edge)        0.000     0.000 r  
@@ -1211,28 +897,28 @@ Slack (MET) :             0.028ns  (arrival time - required time)
                          net (fo=1, routed)           0.689     1.152    U_cw305_dut/U_clocks/usb_clk_bufg
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.181 r  U_cw305_dut/U_clocks/clkbuf/O
                          net (fo=1061, routed)        0.866     2.047    U_cw305_dut/U_reg_aes/src_req_reg_0
-    SLICE_X60Y3          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[37]/C
+    SLICE_X61Y3          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[11]/C
                          clock pessimism             -0.246     1.801    
-    SLICE_X60Y3          FDRE (Hold_fdre_C_D)         0.052     1.853    U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[37]
+    SLICE_X61Y3          FDRE (Hold_fdre_C_D)         0.070     1.871    U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[11]
   -------------------------------------------------------------------
-                         required time                         -1.853    
-                         arrival time                           1.881    
+                         required time                         -1.871    
+                         arrival time                           1.888    
   -------------------------------------------------------------------
-                         slack                                  0.028    
+                         slack                                  0.018    
 
-Slack (MET) :             0.028ns  (arrival time - required time)
-  Source:                 U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[22]/C
+Slack (MET) :             0.021ns  (arrival time - required time)
+  Source:                 U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[82]/C
                             (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[22]/D
+  Destination:            U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[82]/D
                             (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk rise@0.000ns - clk rise@0.000ns)
-  Data Path Delay:        0.288ns  (logic 0.141ns (48.906%)  route 0.147ns (51.094%))
+  Data Path Delay:        0.252ns  (logic 0.128ns (50.881%)  route 0.124ns (49.119%))
   Logic Levels:           0  
-  Clock Path Skew:        0.213ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.046ns
-    Source Clock Delay      (SCD):    1.587ns
+  Clock Path Skew:        0.214ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.048ns
+    Source Clock Delay      (SCD):    1.588ns
     Clock Pessimism Removal (CPR):    0.246ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -1246,12 +932,12 @@ Slack (MET) :             0.028ns  (arrival time - required time)
                          net (fo=1061, routed)        0.030     0.965    U_cw305_dut/U_clocks/clkbuf_0
     BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
                                                       0.026     0.991 r  U_cw305_dut/U_clocks/CCLK_MUX/O
-                         net (fo=920, routed)         0.596     1.587    U_cw305_dut/U_reg_aes/crypt_clk
-    SLICE_X59Y5          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[22]/C
+                         net (fo=920, routed)         0.597     1.588    U_cw305_dut/U_reg_aes/crypt_clk
+    SLICE_X58Y1          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[82]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X59Y5          FDRE (Prop_fdre_C_Q)         0.141     1.728 r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[22]/Q
-                         net (fo=1, routed)           0.147     1.875    U_cw305_dut/U_reg_aes/reg_crypt_cipherout[22]
-    SLICE_X61Y7          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[22]/D
+    SLICE_X58Y1          FDRE (Prop_fdre_C_Q)         0.128     1.716 r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[82]/Q
+                         net (fo=1, routed)           0.124     1.839    U_cw305_dut/U_reg_aes/reg_crypt_cipherout[82]
+    SLICE_X59Y0          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[82]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk rise edge)        0.000     0.000 r  
@@ -1260,25 +946,128 @@ Slack (MET) :             0.028ns  (arrival time - required time)
     D15                  IBUF (Prop_ibuf_I_O)         0.463     0.463 r  U_cw305_dut/U_clocks/clkibuf/O
                          net (fo=1, routed)           0.689     1.152    U_cw305_dut/U_clocks/usb_clk_bufg
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.181 r  U_cw305_dut/U_clocks/clkbuf/O
-                         net (fo=1061, routed)        0.865     2.046    U_cw305_dut/U_reg_aes/src_req_reg_0
-    SLICE_X61Y7          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[22]/C
-                         clock pessimism             -0.246     1.800    
-    SLICE_X61Y7          FDRE (Hold_fdre_C_D)         0.047     1.847    U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[22]
+                         net (fo=1061, routed)        0.867     2.048    U_cw305_dut/U_reg_aes/src_req_reg_0
+    SLICE_X59Y0          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[82]/C
+                         clock pessimism             -0.246     1.802    
+    SLICE_X59Y0          FDRE (Hold_fdre_C_D)         0.017     1.819    U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[82]
   -------------------------------------------------------------------
-                         required time                         -1.847    
-                         arrival time                           1.875    
+                         required time                         -1.819    
+                         arrival time                           1.839    
   -------------------------------------------------------------------
-                         slack                                  0.028    
+                         slack                                  0.021    
 
-Slack (MET) :             0.029ns  (arrival time - required time)
-  Source:                 U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[81]/C
+Slack (MET) :             0.022ns  (arrival time - required time)
+  Source:                 U_cw305_dut/aes_core/data_o_reg[53]/C
                             (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[81]/D
+  Destination:            U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[53]/D
                             (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk rise@0.000ns - clk rise@0.000ns)
-  Data Path Delay:        0.319ns  (logic 0.164ns (51.388%)  route 0.155ns (48.612%))
+  Data Path Delay:        0.356ns  (logic 0.141ns (39.617%)  route 0.215ns (60.383%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.264ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.077ns
+    Source Clock Delay      (SCD):    1.556ns
+    Clock Pessimism Removal (CPR):    0.257ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    D15                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    U_cw305_dut/U_clocks/clk
+    D15                  IBUF (Prop_ibuf_I_O)         0.275     0.275 r  U_cw305_dut/U_clocks/clkibuf/O
+                         net (fo=1, routed)           0.634     0.909    U_cw305_dut/U_clocks/usb_clk_bufg
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.935 r  U_cw305_dut/U_clocks/clkbuf/O
+                         net (fo=1061, routed)        0.030     0.965    U_cw305_dut/U_clocks/clkbuf_0
+    BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
+                                                      0.026     0.991 r  U_cw305_dut/U_clocks/CCLK_MUX/O
+                         net (fo=920, routed)         0.565     1.556    U_cw305_dut/aes_core/crypt_clk
+    SLICE_X36Y3          FDRE                                         r  U_cw305_dut/aes_core/data_o_reg[53]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X36Y3          FDRE (Prop_fdre_C_Q)         0.141     1.697 r  U_cw305_dut/aes_core/data_o_reg[53]/Q
+                         net (fo=1, routed)           0.215     1.912    U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[127]_0[53]
+    SLICE_X35Y0          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[53]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        0.000     0.000 r  
+    D15                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    U_cw305_dut/U_clocks/clk
+    D15                  IBUF (Prop_ibuf_I_O)         0.463     0.463 r  U_cw305_dut/U_clocks/clkibuf/O
+                         net (fo=1, routed)           0.689     1.152    U_cw305_dut/U_clocks/usb_clk_bufg
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.181 r  U_cw305_dut/U_clocks/clkbuf/O
+                         net (fo=1061, routed)        0.033     1.214    U_cw305_dut/U_clocks/clkbuf_0
+    BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
+                                                      0.029     1.243 r  U_cw305_dut/U_clocks/CCLK_MUX/O
+                         net (fo=920, routed)         0.834     2.077    U_cw305_dut/U_reg_aes/crypt_clk
+    SLICE_X35Y0          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[53]/C
+                         clock pessimism             -0.257     1.820    
+    SLICE_X35Y0          FDRE (Hold_fdre_C_D)         0.070     1.890    U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[53]
+  -------------------------------------------------------------------
+                         required time                         -1.890    
+                         arrival time                           1.912    
+  -------------------------------------------------------------------
+                         slack                                  0.022    
+
+Slack (MET) :             0.024ns  (arrival time - required time)
+  Source:                 U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[37]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[37]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk rise@0.000ns - clk rise@0.000ns)
+  Data Path Delay:        0.253ns  (logic 0.128ns (50.647%)  route 0.125ns (49.353%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.213ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.016ns
+    Source Clock Delay      (SCD):    1.557ns
+    Clock Pessimism Removal (CPR):    0.246ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    D15                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    U_cw305_dut/U_clocks/clk
+    D15                  IBUF (Prop_ibuf_I_O)         0.275     0.275 r  U_cw305_dut/U_clocks/clkibuf/O
+                         net (fo=1, routed)           0.634     0.909    U_cw305_dut/U_clocks/usb_clk_bufg
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.935 r  U_cw305_dut/U_clocks/clkbuf/O
+                         net (fo=1061, routed)        0.030     0.965    U_cw305_dut/U_clocks/clkbuf_0
+    BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
+                                                      0.026     0.991 r  U_cw305_dut/U_clocks/CCLK_MUX/O
+                         net (fo=920, routed)         0.566     1.557    U_cw305_dut/U_reg_aes/crypt_clk
+    SLICE_X32Y1          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[37]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y1          FDRE (Prop_fdre_C_Q)         0.128     1.685 r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[37]/Q
+                         net (fo=1, routed)           0.125     1.810    U_cw305_dut/U_reg_aes/reg_crypt_cipherout[37]
+    SLICE_X32Y0          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[37]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        0.000     0.000 r  
+    D15                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    U_cw305_dut/U_clocks/clk
+    D15                  IBUF (Prop_ibuf_I_O)         0.463     0.463 r  U_cw305_dut/U_clocks/clkibuf/O
+                         net (fo=1, routed)           0.689     1.152    U_cw305_dut/U_clocks/usb_clk_bufg
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.181 r  U_cw305_dut/U_clocks/clkbuf/O
+                         net (fo=1061, routed)        0.835     2.016    U_cw305_dut/U_reg_aes/src_req_reg_0
+    SLICE_X32Y0          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[37]/C
+                         clock pessimism             -0.246     1.770    
+    SLICE_X32Y0          FDRE (Hold_fdre_C_D)         0.016     1.786    U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[37]
+  -------------------------------------------------------------------
+                         required time                         -1.786    
+                         arrival time                           1.810    
+  -------------------------------------------------------------------
+                         slack                                  0.024    
+
+Slack (MET) :             0.025ns  (arrival time - required time)
+  Source:                 U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[28]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[28]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk rise@0.000ns - clk rise@0.000ns)
+  Data Path Delay:        0.315ns  (logic 0.141ns (44.805%)  route 0.174ns (55.195%))
   Logic Levels:           0  
   Clock Path Skew:        0.214ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    2.016ns
@@ -1297,11 +1086,11 @@ Slack (MET) :             0.029ns  (arrival time - required time)
     BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
                                                       0.026     0.991 r  U_cw305_dut/U_clocks/CCLK_MUX/O
                          net (fo=920, routed)         0.565     1.556    U_cw305_dut/U_reg_aes/crypt_clk
-    SLICE_X38Y3          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[81]/C
+    SLICE_X41Y3          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[28]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X38Y3          FDRE (Prop_fdre_C_Q)         0.164     1.720 r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[81]/Q
-                         net (fo=1, routed)           0.155     1.875    U_cw305_dut/U_reg_aes/reg_crypt_cipherout[81]
-    SLICE_X37Y1          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[81]/D
+    SLICE_X41Y3          FDRE (Prop_fdre_C_Q)         0.141     1.697 r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[28]/Q
+                         net (fo=1, routed)           0.174     1.871    U_cw305_dut/U_reg_aes/reg_crypt_cipherout[28]
+    SLICE_X38Y2          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[28]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk rise edge)        0.000     0.000 r  
@@ -1311,14 +1100,214 @@ Slack (MET) :             0.029ns  (arrival time - required time)
                          net (fo=1, routed)           0.689     1.152    U_cw305_dut/U_clocks/usb_clk_bufg
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.181 r  U_cw305_dut/U_clocks/clkbuf/O
                          net (fo=1061, routed)        0.835     2.016    U_cw305_dut/U_reg_aes/src_req_reg_0
-    SLICE_X37Y1          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[81]/C
+    SLICE_X38Y2          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[28]/C
                          clock pessimism             -0.246     1.770    
-    SLICE_X37Y1          FDRE (Hold_fdre_C_D)         0.076     1.846    U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[81]
+    SLICE_X38Y2          FDRE (Hold_fdre_C_D)         0.076     1.846    U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[28]
   -------------------------------------------------------------------
                          required time                         -1.846    
-                         arrival time                           1.875    
+                         arrival time                           1.871    
   -------------------------------------------------------------------
-                         slack                                  0.029    
+                         slack                                  0.025    
+
+Slack (MET) :             0.025ns  (arrival time - required time)
+  Source:                 U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[38]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[38]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk rise@0.000ns - clk rise@0.000ns)
+  Data Path Delay:        0.310ns  (logic 0.141ns (45.527%)  route 0.169ns (54.473%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.215ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.017ns
+    Source Clock Delay      (SCD):    1.556ns
+    Clock Pessimism Removal (CPR):    0.246ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    D15                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    U_cw305_dut/U_clocks/clk
+    D15                  IBUF (Prop_ibuf_I_O)         0.275     0.275 r  U_cw305_dut/U_clocks/clkibuf/O
+                         net (fo=1, routed)           0.634     0.909    U_cw305_dut/U_clocks/usb_clk_bufg
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.935 r  U_cw305_dut/U_clocks/clkbuf/O
+                         net (fo=1061, routed)        0.030     0.965    U_cw305_dut/U_clocks/clkbuf_0
+    BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
+                                                      0.026     0.991 r  U_cw305_dut/U_clocks/CCLK_MUX/O
+                         net (fo=920, routed)         0.565     1.556    U_cw305_dut/U_reg_aes/crypt_clk
+    SLICE_X28Y3          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[38]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X28Y3          FDRE (Prop_fdre_C_Q)         0.141     1.697 r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[38]/Q
+                         net (fo=1, routed)           0.169     1.866    U_cw305_dut/U_reg_aes/reg_crypt_cipherout[38]
+    SLICE_X29Y2          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[38]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        0.000     0.000 r  
+    D15                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    U_cw305_dut/U_clocks/clk
+    D15                  IBUF (Prop_ibuf_I_O)         0.463     0.463 r  U_cw305_dut/U_clocks/clkibuf/O
+                         net (fo=1, routed)           0.689     1.152    U_cw305_dut/U_clocks/usb_clk_bufg
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.181 r  U_cw305_dut/U_clocks/clkbuf/O
+                         net (fo=1061, routed)        0.836     2.017    U_cw305_dut/U_reg_aes/src_req_reg_0
+    SLICE_X29Y2          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[38]/C
+                         clock pessimism             -0.246     1.771    
+    SLICE_X29Y2          FDRE (Hold_fdre_C_D)         0.070     1.841    U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[38]
+  -------------------------------------------------------------------
+                         required time                         -1.841    
+                         arrival time                           1.866    
+  -------------------------------------------------------------------
+                         slack                                  0.025    
+
+Slack (MET) :             0.027ns  (arrival time - required time)
+  Source:                 U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[77]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[77]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk rise@0.000ns - clk rise@0.000ns)
+  Data Path Delay:        0.311ns  (logic 0.141ns (45.298%)  route 0.170ns (54.702%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.214ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.017ns
+    Source Clock Delay      (SCD):    1.557ns
+    Clock Pessimism Removal (CPR):    0.246ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    D15                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    U_cw305_dut/U_clocks/clk
+    D15                  IBUF (Prop_ibuf_I_O)         0.275     0.275 r  U_cw305_dut/U_clocks/clkibuf/O
+                         net (fo=1, routed)           0.634     0.909    U_cw305_dut/U_clocks/usb_clk_bufg
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.935 r  U_cw305_dut/U_clocks/clkbuf/O
+                         net (fo=1061, routed)        0.030     0.965    U_cw305_dut/U_clocks/clkbuf_0
+    BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
+                                                      0.026     0.991 r  U_cw305_dut/U_clocks/CCLK_MUX/O
+                         net (fo=920, routed)         0.566     1.557    U_cw305_dut/U_reg_aes/crypt_clk
+    SLICE_X41Y2          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[77]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X41Y2          FDRE (Prop_fdre_C_Q)         0.141     1.698 r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[77]/Q
+                         net (fo=1, routed)           0.170     1.868    U_cw305_dut/U_reg_aes/reg_crypt_cipherout[77]
+    SLICE_X41Y1          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[77]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        0.000     0.000 r  
+    D15                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    U_cw305_dut/U_clocks/clk
+    D15                  IBUF (Prop_ibuf_I_O)         0.463     0.463 r  U_cw305_dut/U_clocks/clkibuf/O
+                         net (fo=1, routed)           0.689     1.152    U_cw305_dut/U_clocks/usb_clk_bufg
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.181 r  U_cw305_dut/U_clocks/clkbuf/O
+                         net (fo=1061, routed)        0.836     2.017    U_cw305_dut/U_reg_aes/src_req_reg_0
+    SLICE_X41Y1          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[77]/C
+                         clock pessimism             -0.246     1.771    
+    SLICE_X41Y1          FDRE (Hold_fdre_C_D)         0.070     1.841    U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[77]
+  -------------------------------------------------------------------
+                         required time                         -1.841    
+                         arrival time                           1.868    
+  -------------------------------------------------------------------
+                         slack                                  0.027    
+
+Slack (MET) :             0.028ns  (arrival time - required time)
+  Source:                 U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[78]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[78]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk rise@0.000ns - clk rise@0.000ns)
+  Data Path Delay:        0.267ns  (logic 0.148ns (55.450%)  route 0.119ns (44.550%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.214ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.017ns
+    Source Clock Delay      (SCD):    1.557ns
+    Clock Pessimism Removal (CPR):    0.246ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    D15                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    U_cw305_dut/U_clocks/clk
+    D15                  IBUF (Prop_ibuf_I_O)         0.275     0.275 r  U_cw305_dut/U_clocks/clkibuf/O
+                         net (fo=1, routed)           0.634     0.909    U_cw305_dut/U_clocks/usb_clk_bufg
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.935 r  U_cw305_dut/U_clocks/clkbuf/O
+                         net (fo=1061, routed)        0.030     0.965    U_cw305_dut/U_clocks/clkbuf_0
+    BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
+                                                      0.026     0.991 r  U_cw305_dut/U_clocks/CCLK_MUX/O
+                         net (fo=920, routed)         0.566     1.557    U_cw305_dut/U_reg_aes/crypt_clk
+    SLICE_X30Y2          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[78]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X30Y2          FDRE (Prop_fdre_C_Q)         0.148     1.705 r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[78]/Q
+                         net (fo=1, routed)           0.119     1.824    U_cw305_dut/U_reg_aes/reg_crypt_cipherout[78]
+    SLICE_X29Y1          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[78]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        0.000     0.000 r  
+    D15                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    U_cw305_dut/U_clocks/clk
+    D15                  IBUF (Prop_ibuf_I_O)         0.463     0.463 r  U_cw305_dut/U_clocks/clkibuf/O
+                         net (fo=1, routed)           0.689     1.152    U_cw305_dut/U_clocks/usb_clk_bufg
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.181 r  U_cw305_dut/U_clocks/clkbuf/O
+                         net (fo=1061, routed)        0.836     2.017    U_cw305_dut/U_reg_aes/src_req_reg_0
+    SLICE_X29Y1          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[78]/C
+                         clock pessimism             -0.246     1.771    
+    SLICE_X29Y1          FDRE (Hold_fdre_C_D)         0.025     1.796    U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[78]
+  -------------------------------------------------------------------
+                         required time                         -1.796    
+                         arrival time                           1.824    
+  -------------------------------------------------------------------
+                         slack                                  0.028    
+
+Slack (MET) :             0.030ns  (arrival time - required time)
+  Source:                 U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[61]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[61]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk rise@0.000ns - clk rise@0.000ns)
+  Data Path Delay:        0.316ns  (logic 0.141ns (44.607%)  route 0.175ns (55.393%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.214ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.017ns
+    Source Clock Delay      (SCD):    1.557ns
+    Clock Pessimism Removal (CPR):    0.246ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    D15                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    U_cw305_dut/U_clocks/clk
+    D15                  IBUF (Prop_ibuf_I_O)         0.275     0.275 r  U_cw305_dut/U_clocks/clkibuf/O
+                         net (fo=1, routed)           0.634     0.909    U_cw305_dut/U_clocks/usb_clk_bufg
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.935 r  U_cw305_dut/U_clocks/clkbuf/O
+                         net (fo=1061, routed)        0.030     0.965    U_cw305_dut/U_clocks/clkbuf_0
+    BUFGCTRL_X0Y17       BUFGCTRL (Prop_bufgctrl_I1_O)
+                                                      0.026     0.991 r  U_cw305_dut/U_clocks/CCLK_MUX/O
+                         net (fo=920, routed)         0.566     1.557    U_cw305_dut/U_reg_aes/crypt_clk
+    SLICE_X39Y1          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[61]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X39Y1          FDRE (Prop_fdre_C_Q)         0.141     1.698 r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_reg[61]/Q
+                         net (fo=1, routed)           0.175     1.873    U_cw305_dut/U_reg_aes/reg_crypt_cipherout[61]
+    SLICE_X40Y1          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[61]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        0.000     0.000 r  
+    D15                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    U_cw305_dut/U_clocks/clk
+    D15                  IBUF (Prop_ibuf_I_O)         0.463     0.463 r  U_cw305_dut/U_clocks/clkibuf/O
+                         net (fo=1, routed)           0.689     1.152    U_cw305_dut/U_clocks/usb_clk_bufg
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.181 r  U_cw305_dut/U_clocks/clkbuf/O
+                         net (fo=1061, routed)        0.836     2.017    U_cw305_dut/U_reg_aes/src_req_reg_0
+    SLICE_X40Y1          FDRE                                         r  U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[61]/C
+                         clock pessimism             -0.246     1.771    
+    SLICE_X40Y1          FDRE (Hold_fdre_C_D)         0.072     1.843    U_cw305_dut/U_reg_aes/reg_crypt_cipherout_usb_reg[61]
+  -------------------------------------------------------------------
+                         required time                         -1.843    
+                         arrival time                           1.873    
+  -------------------------------------------------------------------
+                         slack                                  0.030    
 
 
 
@@ -1342,26 +1331,26 @@ Min Period        n/a     FDRE/C       n/a            1.000         10.000      
 Min Period        n/a     FDRE/C       n/a            1.000         10.000      9.000      SLICE_X65Y12    U_cw305_dut/usb_timer_heartbeat_reg[12]/C
 Min Period        n/a     FDRE/C       n/a            1.000         10.000      9.000      SLICE_X65Y12    U_cw305_dut/usb_timer_heartbeat_reg[13]/C
 Min Period        n/a     FDRE/C       n/a            1.000         10.000      9.000      SLICE_X65Y12    U_cw305_dut/usb_timer_heartbeat_reg[14]/C
-Low Pulse Width   Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y29    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMA/CLK
-Low Pulse Width   Fast    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y29    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMA/CLK
-Low Pulse Width   Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y29    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMB/CLK
-Low Pulse Width   Fast    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y29    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMB/CLK
-Low Pulse Width   Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y29    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMC/CLK
-Low Pulse Width   Fast    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y29    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMC/CLK
-Low Pulse Width   Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y29    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMD/CLK
-Low Pulse Width   Fast    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y29    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMD/CLK
-Low Pulse Width   Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X52Y30    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_3_5/RAMA/CLK
-Low Pulse Width   Fast    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X52Y30    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_3_5/RAMA/CLK
-High Pulse Width  Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y29    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMA/CLK
-High Pulse Width  Fast    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y29    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMA/CLK
-High Pulse Width  Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y29    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMB/CLK
-High Pulse Width  Fast    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y29    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMB/CLK
-High Pulse Width  Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y29    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMC/CLK
-High Pulse Width  Fast    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y29    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMC/CLK
-High Pulse Width  Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y29    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMD/CLK
-High Pulse Width  Fast    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y29    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMD/CLK
-High Pulse Width  Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X52Y30    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_3_5/RAMA/CLK
-High Pulse Width  Fast    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X52Y30    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_3_5/RAMA/CLK
+Low Pulse Width   Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y27    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMA/CLK
+Low Pulse Width   Fast    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y27    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMA/CLK
+Low Pulse Width   Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y27    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMB/CLK
+Low Pulse Width   Fast    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y27    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMB/CLK
+Low Pulse Width   Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y27    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMC/CLK
+Low Pulse Width   Fast    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y27    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMC/CLK
+Low Pulse Width   Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y27    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMD/CLK
+Low Pulse Width   Fast    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y27    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMD/CLK
+Low Pulse Width   Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X46Y27    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_3_5/RAMA/CLK
+Low Pulse Width   Fast    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X46Y27    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_3_5/RAMA/CLK
+High Pulse Width  Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y27    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMA/CLK
+High Pulse Width  Fast    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y27    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMA/CLK
+High Pulse Width  Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y27    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMB/CLK
+High Pulse Width  Fast    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y27    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMB/CLK
+High Pulse Width  Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y27    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMC/CLK
+High Pulse Width  Fast    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y27    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMC/CLK
+High Pulse Width  Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y27    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMD/CLK
+High Pulse Width  Fast    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X50Y27    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2/RAMD/CLK
+High Pulse Width  Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X46Y27    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_3_5/RAMA/CLK
+High Pulse Width  Fast    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X46Y27    U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_3_5/RAMA/CLK
 
 
 

@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "E:/project_aes/project_aes.runs/synth_1/ss2_aes_wrapper.tcl"
+  variable script "D:/myhub/Side_Channel_Attack/chipwhisperer/fpga/Xor_Operation/Xor_Operation.runs/synth_1/ss2_aes_wrapper.tcl"
   variable category "vivado_synth"
 }
 
@@ -70,39 +70,38 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 5
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35tcsg324-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir E:/project_aes/project_aes.cache/wt [current_project]
-set_property parent.project_path E:/project_aes/project_aes.xpr [current_project]
+set_property webtalk.parent_dir D:/myhub/Side_Channel_Attack/chipwhisperer/fpga/Xor_Operation/Xor_Operation.cache/wt [current_project]
+set_property parent.project_path D:/myhub/Side_Channel_Attack/chipwhisperer/fpga/Xor_Operation/Xor_Operation.xpr [current_project]
 set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo e:/project_aes/project_aes.cache/ip [current_project]
+set_property ip_output_repo d:/myhub/Side_Channel_Attack/chipwhisperer/fpga/Xor_Operation/Xor_Operation.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-set_property include_dirs E:/github/chipwhisperer/hardware/victims/cw305_artixtarget/fpga/common [current_fileset]
+set_property include_dirs D:/myhub/github/chipwhisperer/hardware/victims/cw305_artixtarget/fpga/common [current_fileset]
 set_property verilog_define {GOOGLE_VAULT_AES SS2_WRAPPER} [current_fileset]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
-  E:/github/chipwhisperer/hardware/victims/cw305_artixtarget/fpga/cryptosrc/aes_googlevault/aes_core.v
-  E:/github/chipwhisperer/hardware/victims/cw305_artixtarget/fpga/cryptosrc/aes_googlevault/aes_ks.v
-  E:/github/chipwhisperer/hardware/victims/cw305_artixtarget/fpga/cryptosrc/aes_newae/aes_sbox_lut.v
-  E:/github/chipwhisperer/hardware/victims/cw305_artixtarget/fpga/common/cdc_pulse.v
-  E:/github/chipwhisperer/hardware/victims/cw305_artixtarget/fpga/common/clocks.v
-  E:/github/chipwhisperer/hardware/victims/cw308_ufo_target/xc7a35/hdl/crc_ss2.v
-  E:/github/chipwhisperer/hardware/victims/cw305_artixtarget/fpga/common/cw305_defines.v
-  E:/github/chipwhisperer/hardware/victims/cw305_artixtarget/fpga/common/cw305_reg_aes.v
-  E:/github/chipwhisperer/hardware/victims/cw305_artixtarget/fpga/common/cw305_top.v
-  E:/github/chipwhisperer/hardware/victims/cw305_artixtarget/fpga/common/cw305_usb_reg_fe.v
-  E:/github/chipwhisperer/hardware/victims/cw308_ufo_target/xc7a35/hdl/fifo_sync.v
-  E:/github/chipwhisperer/hardware/victims/cw308_ufo_target/xc7a35/hdl/ss2.v
-  E:/github/chipwhisperer/hardware/victims/cw308_ufo_target/xc7a35/hdl/uart_core.v
-  E:/github/chipwhisperer/hardware/victims/cw308_ufo_target/xc7a35/hdl/ss2_aes_wrapper.v
+  D:/myhub/Side_Channel_Attack/chipwhisperer/fpga/Xor_Operation/Xor_Operation.srcs/sources_1/imports/victims/cw305_artixtarget/fpga/cryptosrc/aes_googlevault/aes_core.v
+  D:/myhub/Side_Channel_Attack/chipwhisperer/fpga/Xor_Operation/Xor_Operation.srcs/sources_1/imports/victims/cw305_artixtarget/fpga/cryptosrc/aes_googlevault/aes_ks.v
+  D:/myhub/Side_Channel_Attack/chipwhisperer/fpga/Xor_Operation/Xor_Operation.srcs/sources_1/imports/victims/cw305_artixtarget/fpga/cryptosrc/aes_newae/aes_sbox_lut.v
+  D:/myhub/Side_Channel_Attack/chipwhisperer/fpga/Xor_Operation/Xor_Operation.srcs/sources_1/imports/victims/cw305_artixtarget/fpga/common/cdc_pulse.v
+  D:/myhub/Side_Channel_Attack/chipwhisperer/fpga/Xor_Operation/Xor_Operation.srcs/sources_1/imports/victims/cw305_artixtarget/fpga/common/clocks.v
+  D:/myhub/Side_Channel_Attack/chipwhisperer/fpga/Xor_Operation/Xor_Operation.srcs/sources_1/imports/victims/cw308_ufo_target/xc7a35/hdl/crc_ss2.v
+  D:/myhub/Side_Channel_Attack/chipwhisperer/fpga/Xor_Operation/Xor_Operation.srcs/sources_1/imports/victims/cw305_artixtarget/fpga/common/cw305_defines.v
+  D:/myhub/Side_Channel_Attack/chipwhisperer/fpga/Xor_Operation/Xor_Operation.srcs/sources_1/imports/victims/cw305_artixtarget/fpga/common/cw305_reg_aes.v
+  D:/myhub/Side_Channel_Attack/chipwhisperer/fpga/Xor_Operation/Xor_Operation.srcs/sources_1/imports/victims/cw305_artixtarget/fpga/common/cw305_top.v
+  D:/myhub/Side_Channel_Attack/chipwhisperer/fpga/Xor_Operation/Xor_Operation.srcs/sources_1/imports/victims/cw305_artixtarget/fpga/common/cw305_usb_reg_fe.v
+  D:/myhub/Side_Channel_Attack/chipwhisperer/fpga/Xor_Operation/Xor_Operation.srcs/sources_1/imports/victims/cw308_ufo_target/xc7a35/hdl/fifo_sync.v
+  D:/myhub/Side_Channel_Attack/chipwhisperer/fpga/Xor_Operation/Xor_Operation.srcs/sources_1/imports/victims/cw308_ufo_target/xc7a35/hdl/ss2.v
+  D:/myhub/Side_Channel_Attack/chipwhisperer/fpga/Xor_Operation/Xor_Operation.srcs/sources_1/imports/victims/cw308_ufo_target/xc7a35/hdl/uart_core.v
+  D:/myhub/Side_Channel_Attack/chipwhisperer/fpga/Xor_Operation/Xor_Operation.srcs/sources_1/imports/victims/cw308_ufo_target/xc7a35/hdl/ss2_aes_wrapper.v
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -113,8 +112,8 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc E:/github/chipwhisperer/hardware/victims/cw308_ufo_target/xc7a35/vivado/cw312_ss2.xdc
-set_property used_in_implementation false [get_files E:/github/chipwhisperer/hardware/victims/cw308_ufo_target/xc7a35/vivado/cw312_ss2.xdc]
+read_xdc D:/myhub/Side_Channel_Attack/chipwhisperer/fpga/Xor_Operation/Xor_Operation.srcs/constrs_1/imports/vivado/cw312_ss2.xdc
+set_property used_in_implementation false [get_files D:/myhub/Side_Channel_Attack/chipwhisperer/fpga/Xor_Operation/Xor_Operation.srcs/constrs_1/imports/vivado/cw312_ss2.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]

@@ -1,8 +1,8 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-| Date         : Sun Aug 27 05:42:50 2023
-| Host         : VENGEANCE running 64-bit major release  (build 9200)
+| Date         : Sat Sep 30 15:59:39 2023
+| Host         : Lab-4090 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file ss2_aes_wrapper_control_sets_placed.rpt
 | Design       : ss2_aes_wrapper
 | Device       : xc7a35t
@@ -58,12 +58,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |             883 |          255 |
-| No           | No                    | Yes                    |              12 |            9 |
-| No           | Yes                   | No                     |              35 |           17 |
-| Yes          | No                    | No                     |             749 |          251 |
+| No           | No                    | No                     |             883 |          271 |
+| No           | No                    | Yes                    |              12 |            8 |
+| No           | Yes                   | No                     |              35 |           15 |
+| Yes          | No                    | No                     |             749 |          250 |
 | Yes          | No                    | Yes                    |              78 |           25 |
-| Yes          | Yes                   | No                     |             172 |           64 |
+| Yes          | Yes                   | No                     |             172 |           70 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -76,65 +76,65 @@ Table of Contents
 |  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_tx_fifo/FSM_onehot_tx_state_reg[0]            | U_ss2/U_tx_fifo/FSM_onehot_tx_state_reg[1] |                1 |              1 |         1.00 |
 |  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/txd_reg_i_1_n_0                          | U_ss2/U_uart/resetn                        |                1 |              1 |         1.00 |
 |  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_tx_fifo/FSM_onehot_tx_state_reg[0]            |                                            |                1 |              4 |         4.00 |
-|  U_cw305_dut/U_clocks/crypt_clk | U_cw305_dut/aes_core/E[0]                             | U_cw305_dut/U_reg_aes/state[0]             |                2 |              4 |         2.00 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_cen_r_reg_1[0]           | U_ss2/U_uart/resetn                        |                4 |              5 |         1.25 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/tx_read_response_reg_n_0                        | U_ss2/tx_len[7]_i_1_n_0                    |                3 |              5 |         1.67 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/FSM_onehot_tx_state_reg[0][0]            | U_ss2/U_uart/resetn                        |                1 |              5 |         5.00 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_15             |                                            |                1 |              5 |         5.00 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/rxd_bit_ctr_we                           | U_ss2/U_uart/resetn                        |                1 |              5 |         5.00 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_1              |                                            |                1 |              5 |         5.00 |
+|  U_cw305_dut/U_clocks/crypt_clk | U_cw305_dut/aes_core/E[0]                             | U_cw305_dut/U_reg_aes/state[0]             |                1 |              4 |         4.00 |
 |  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/txd_bit_ctr_we                           | U_ss2/U_uart/resetn                        |                2 |              5 |         2.50 |
-|  U_cw305_dut/U_clocks/crypt_clk |                                                       | U_ss2/U_uart/resetn                        |                1 |              5 |         5.00 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/rxd_syn_reg_reg_0                        |                                            |                2 |              7 |         3.50 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_11             |                                            |                1 |              8 |         8.00 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_14             |                                            |                2 |              8 |         4.00 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_16             |                                            |                3 |              8 |         2.67 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_7              |                                            |                2 |              8 |         4.00 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_10             |                                            |                1 |              8 |         8.00 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_12             |                                            |                1 |              8 |         8.00 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_13             |                                            |                1 |              8 |         8.00 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_5              |                                            |                6 |              8 |         1.33 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_3              |                                            |                3 |              8 |         2.67 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_4              |                                            |                4 |              8 |         2.00 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_6              |                                            |                3 |              8 |         2.67 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_9              |                                            |                1 |              8 |         8.00 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_8              |                                            |                2 |              8 |         4.00 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/rx_valid_byte                            | U_ss2/U_crc/FSM_sequential_rx_state_reg[2] |                4 |              8 |         2.00 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/E[0]                                     |                                            |                4 |              8 |         2.00 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/E[1]                                     |                                            |                3 |              8 |         2.67 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/E[3]                                     |                                            |                3 |              8 |         2.67 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/E[2]                                     |                                            |                4 |              8 |         2.00 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/rxd_bit_ctr_we                           | U_ss2/U_uart/resetn                        |                2 |              5 |         2.50 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/FSM_onehot_tx_state_reg[0][0]            | U_ss2/U_uart/resetn                        |                1 |              5 |         5.00 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_15             |                                            |                3 |              5 |         1.67 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_1              |                                            |                1 |              5 |         5.00 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/tx_read_response_reg_n_0                        | U_ss2/tx_len[7]_i_1_n_0                    |                2 |              5 |         2.50 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_cen_r_reg_1[0]           | U_ss2/U_uart/resetn                        |                3 |              5 |         1.67 |
+|  U_cw305_dut/U_clocks/crypt_clk |                                                       | U_ss2/U_uart/resetn                        |                2 |              5 |         2.50 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/rxd_syn_reg_reg_0                        |                                            |                4 |              7 |         1.75 |
 |  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/rx_byte_count_reg[1][0]                  |                                            |                2 |              8 |         4.00 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/txd_byte_we                              | U_ss2/U_uart/resetn                        |                3 |              8 |         2.67 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/rx_valid_byte                            | U_ss2/U_crc/FSM_sequential_rx_state_reg[2] |                4 |              8 |         2.00 |
 |  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/rx_byte_count_reg[2][0]                  |                                            |                2 |              8 |         4.00 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/rx_byte_count_reg[0][0]                  |                                            |                3 |              8 |         2.67 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/rx_byte_count_reg[0]_0[0]                |                                            |                3 |              8 |         2.67 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/rx_insert_zero_reg[0]                    |                                            |                2 |              8 |         4.00 |
 |  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/tx_next_byte_r_reg[0]                    | U_ss2/U_crc/crc_init                       |                3 |              8 |         2.67 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/tx_syn_reg[0]                            |                                            |                3 |              8 |         2.67 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/dut_register_read                               |                                            |                2 |              8 |         4.00 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/rx_zero_offset[7]_i_1_n_0                       |                                            |                3 |              8 |         2.67 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/tx_raw_byte0                                    |                                            |                8 |              8 |         1.00 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/tx_next_byte_reg_n_0                            | U_ss2/tx_raw_index[7]_i_1_n_0              |                4 |              8 |         2.00 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_5              |                                            |                4 |              8 |         2.00 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_6              |                                            |                4 |              8 |         2.00 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/txd_byte_we                              | U_ss2/U_uart/resetn                        |                2 |              8 |         4.00 |
 |  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_2              |                                            |                3 |              8 |         2.67 |
-|  U_cw305_dut/U_clocks/clkbuf_0  |                                                       | U_cw305_dut/read_data[7]_i_1_n_0           |                7 |              8 |         1.14 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/E[3]                                     |                                            |                3 |              8 |         2.67 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/rx_byte_count_reg[0][0]                  |                                            |                2 |              8 |         4.00 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/rx_insert_zero_reg[0]                    |                                            |                3 |              8 |         2.67 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/E[0]                                     |                                            |                2 |              8 |         4.00 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/E[1]                                     |                                            |                3 |              8 |         2.67 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/E[2]                                     |                                            |                4 |              8 |         2.00 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_13             |                                            |                1 |              8 |         8.00 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_3              |                                            |                2 |              8 |         4.00 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/tx_syn_reg[0]                            |                                            |                4 |              8 |         2.00 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_7              |                                            |                2 |              8 |         4.00 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_16             |                                            |                3 |              8 |         2.67 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_9              |                                            |                2 |              8 |         4.00 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_11             |                                            |                2 |              8 |         4.00 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_8              |                                            |                2 |              8 |         4.00 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_12             |                                            |                3 |              8 |         2.67 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_4              |                                            |                3 |              8 |         2.67 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/dut_register_read                               |                                            |                1 |              8 |         8.00 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/tx_raw_byte0                                    |                                            |                8 |              8 |         1.00 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_10             |                                            |                1 |              8 |         8.00 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/rx_zero_offset[7]_i_1_n_0                       |                                            |                2 |              8 |         4.00 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_14             |                                            |                1 |              8 |         8.00 |
+|  U_cw305_dut/U_clocks/clkbuf_0  |                                                       | U_cw305_dut/read_data[7]_i_1_n_0           |                4 |              8 |         2.00 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/rx_byte_count_reg[0]_0[0]                |                                            |                4 |              8 |         2.00 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/tx_next_byte_reg_n_0                            | U_ss2/tx_raw_index[7]_i_1_n_0              |                4 |              8 |         2.00 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_tx_fifo/rptr0                                 | U_ss2/U_uart/resetn                        |                2 |              9 |         4.50 |
 |  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/rxd_byte_reg[8]_i_1_n_0                  | U_ss2/U_uart/resetn                        |                3 |              9 |         3.00 |
+|  U_cw305_dut/U_clocks/crypt_clk |                                                       | U_cw305_dut/U_reg_aes/state[0]             |                3 |              9 |         3.00 |
 |  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_tx_fifo/wptr0                                 | U_ss2/U_uart/resetn                        |                3 |              9 |         3.00 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_tx_fifo/rptr0                                 | U_ss2/U_uart/resetn                        |                3 |              9 |         3.00 |
-|  U_cw305_dut/U_clocks/crypt_clk |                                                       | U_cw305_dut/U_reg_aes/state[0]             |                2 |              9 |         4.50 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2_i_1_n_0    |                                            |                3 |             12 |         4.00 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_tx_fifo/flop_inst.mem_reg_128_191_0_2_i_1_n_0 |                                            |                3 |             12 |         4.00 |
 |  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_tx_fifo/flop_inst.mem_reg_192_255_0_2_i_1_n_0 |                                            |                3 |             12 |         4.00 |
 |  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_tx_fifo/flop_inst.mem_reg_64_127_0_2_i_1_n_0  |                                            |                3 |             12 |         4.00 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_tx_fifo/flop_inst.mem_reg_128_191_0_2_i_1_n_0 |                                            |                3 |             12 |         4.00 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_tx_fifo/flop_inst.mem_reg_0_63_0_2_i_1_n_0    |                                            |                3 |             12 |         4.00 |
 |  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/rxd_bitrate_ctr_we                       | U_ss2/U_uart/resetn                        |                4 |             16 |         4.00 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/txd_bitrate_ctr_we                       | U_ss2/U_uart/resetn                        |                5 |             16 |         3.20 |
-|  U_cw305_dut/U_clocks/clkbuf_0  |                                                       | U_ss2/U_uart/resetn                        |               16 |             25 |         1.56 |
-|  U_cw305_dut/U_clocks/crypt_clk | U_cw305_dut/aes_core/data_o[127]_i_1_n_0              | U_cw305_dut/U_reg_aes/state[0]             |               42 |            128 |         3.05 |
-|  U_cw305_dut/U_clocks/crypt_clk | U_cw305_dut/aes_core/busy_o_reg_0[0]                  |                                            |               41 |            128 |         3.12 |
-|  U_cw305_dut/U_clocks/crypt_clk | U_cw305_dut/U_reg_aes/U_go_pulse/E[0]                 |                                            |               50 |            128 |         2.56 |
-|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_0[0]           |                                            |               80 |            256 |         3.20 |
-|  U_cw305_dut/U_clocks/clkbuf_0  |                                                       |                                            |              123 |            367 |         2.98 |
-|  U_cw305_dut/U_clocks/crypt_clk |                                                       |                                            |              132 |            517 |         3.92 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_ss2/U_uart/txd_bitrate_ctr_we                       | U_ss2/U_uart/resetn                        |                6 |             16 |         2.67 |
+|  U_cw305_dut/U_clocks/clkbuf_0  |                                                       | U_ss2/U_uart/resetn                        |               14 |             25 |         1.79 |
+|  U_cw305_dut/U_clocks/crypt_clk | U_cw305_dut/U_reg_aes/U_go_pulse/E[0]                 |                                            |               43 |            128 |         2.98 |
+|  U_cw305_dut/U_clocks/crypt_clk | U_cw305_dut/aes_core/data_o[127]_i_1_n_0              | U_cw305_dut/U_reg_aes/state[0]             |               51 |            128 |         2.51 |
+|  U_cw305_dut/U_clocks/crypt_clk | U_cw305_dut/aes_core/busy_o_reg_0[0]                  |                                            |               46 |            128 |         2.78 |
+|  U_cw305_dut/U_clocks/clkbuf_0  | U_cw305_dut/U_usb_reg_fe/usb_wrn_r_reg_0[0]           |                                            |               79 |            256 |         3.24 |
+|  U_cw305_dut/U_clocks/clkbuf_0  |                                                       |                                            |              128 |            367 |         2.87 |
+|  U_cw305_dut/U_clocks/crypt_clk |                                                       |                                            |              143 |            517 |         3.62 |
 +---------------------------------+-------------------------------------------------------+--------------------------------------------+------------------+----------------+--------------+
 
 
