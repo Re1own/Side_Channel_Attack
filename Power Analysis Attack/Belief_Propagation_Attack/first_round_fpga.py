@@ -91,13 +91,13 @@ def map_to_0_255(data_array):
 
 def get_traces(settings, start, l):
     """Load traces and labels"""
-    traces = np.load("E:\\Side_Channel_Attack\\Traces\\AES_5000_varibale_key\\traces.npy")
+    traces = np.load("../../Traces/AES_5000_varibale_key/traces.npy")
     traces = map_to_0_255(traces)
     traces = traces[start:l]
-    plaintext = np.load("E:\\Side_Channel_Attack\\Traces\\AES_5000_varibale_key\\p.npy")
+    plaintext = np.load("../../Traces/AES_5000_varibale_key/p.npy")
     plaintext = plaintext.astype(np.uint16)
     plaintext = plaintext[start:l]
-    key =np.load("E:\\Side_Channel_Attack\\Traces\\AES_5000_varibale_key\\k.npy")
+    key =np.load("../../Traces/AES_5000_varibale_key/k.npy")
     key = key.astype(np.uint16)
     key = key[start:l]
     labels = var_labels(key, plaintext)
@@ -106,13 +106,13 @@ def get_traces(settings, start, l):
 
 def get_traces2(settings, start, l):
     """Load traces and labels"""
-    traces = np.load("E:\\Side_Channel_Attack\\Traces\\AES_5000_fixed_key\\traces.npy")
+    traces = np.load("../../Traces/AES_5000_varibale_key/traces.npy")
     traces = map_to_0_255(traces)
     traces = traces[start:l]
-    plaintext = np.load("E:\\Side_Channel_Attack\\Traces\\AES_5000_fixed_key\\plaintext.npy")
+    plaintext = np.load("../../Traces/AES_5000_varibale_key/p.npy")
     plaintext = plaintext.astype(np.uint16)
     plaintext = plaintext[start:l]
-    key =np.load("E:\\Side_Channel_Attack\\Traces\\AES_5000_fixed_key\\key.npy")
+    key =np.load("../../Traces/AES_5000_varibale_key/k.npy")
     key = key.astype(np.uint16)
     key = key[start:l]
     labels = var_labels(key, plaintext)

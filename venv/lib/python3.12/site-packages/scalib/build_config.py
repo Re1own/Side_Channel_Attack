@@ -1,0 +1,1 @@
+REQUIRE_AVX2 = False
