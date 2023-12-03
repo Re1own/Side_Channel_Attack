@@ -6,8 +6,8 @@ HW = [bin(n).count("1") for n in range(0,256)]
 def intermediate(pt, keyguess):
     return pt ^ keyguess
 
-traces = np.load("D:\\Side_Channel_Attack\\Traces\\Xor_50000_fixed_key\\traces.npy")
-pt = np.load("D:\\Side_Channel_Attack\\Traces\\Xor_50000_fixed_key\\p.npy")
+traces = np.load("E:\\myhub\\SCA_Traces\\Firmware_aes\\traces.npy")
+pt = np.load("E:\\myhub\\SCA_Traces\\Firmware_aes\\p.npy")
 
 numtraces = np.shape(traces)[0]-1
 numpoint = np.shape(traces)[1]

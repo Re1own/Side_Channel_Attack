@@ -59,7 +59,7 @@ def parse_args():
     parser.add_argument(
         "--attacks",
         type=int,
-        default=1,
+        default=10,
         help="Number of attack runs (default: %(default)s).",
     )
     parser.add_argument(
@@ -161,8 +161,8 @@ def get_traces(settings, start, l):
     # rout = f_database["metadata"]["masks"][I, 17].astype(np.uint16)
     # labels = var_labels(key, plaintext, masks, rin, rout)
     #!!!!
-    traces = np.load("./sample/traces.npy")
-    labels = load_dict("./sample/labels.pkl")
+    traces = np.load("E:\\myhub\\sample\\traces.npy")
+    labels = load_dict("E:\\myhub\\sample\\labels.pkl")
 
     return traces, labels
 
@@ -278,11 +278,11 @@ def run_attacks_eval(settings, models):
     """Return the list of the rank of the true key for each attack."""
     # Offset in traces to no attack the training traces
     #traces, labels = get_traces(settings, start=settings.profile, l=settings.attacks)
-    traces = np.load("./sample/traces.npy")
-    traces = traces[0:settings.attacks]
+    traces = np.load("E:\\myhub\\sample\\traces.npy")
+    traces = traces[2:12]
 
-    labels = load_dict("./sample/labels.pkl")
-    labels['k_0'] = labels['k_0'][0:settings.attacks]
+    labels = load_dict("E:\\myhub\\sample\\labels.pkl")
+    labels['k_0'] = labels['k_0'][2:12]
 
     return 2**np.array(list(tqdm(map(
         lambda a: run_attack_eval(

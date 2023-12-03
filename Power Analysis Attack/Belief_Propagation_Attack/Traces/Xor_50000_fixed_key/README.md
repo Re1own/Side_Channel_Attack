@@ -1,0 +1,2 @@
+# Fixed_key ^ Plaintext 
+
