@@ -54,7 +54,7 @@ def parse_args():
     parser.add_argument(
         "--dim",
         type=int,
-        default=8,
+        default=5,
         help="Dimensionality of projected space for LDA (default: %(default)s).",
     )
     # parser.add_argument(
@@ -91,13 +91,13 @@ def map_to_0_255(data_array):
 
 def get_traces(settings, start, l):
     """Load traces and labels"""
-    traces = np.load("../../Traces/AES_5000_varibale_key/traces.npy")
+    traces = np.load("../../Traces/AES_5000_var_key/traces.npy")
     traces = map_to_0_255(traces)
     traces = traces[start:l]
-    plaintext = np.load("../../Traces/AES_5000_varibale_key/p.npy")
+    plaintext = np.load("../../Traces/AES_5000_var_key/plaintext.npy")
     plaintext = plaintext.astype(np.uint16)
     plaintext = plaintext[start:l]
-    key =np.load("../../Traces/AES_5000_varibale_key/k.npy")
+    key =np.load("../../Traces/AES_5000_var_key/key.npy")
     key = key.astype(np.uint16)
     key = key[start:l]
     labels = var_labels(key, plaintext)
@@ -106,13 +106,13 @@ def get_traces(settings, start, l):
 
 def get_traces2(settings, start, l):
     """Load traces and labels"""
-    traces = np.load("../../Traces/AES_5000_varibale_key/traces.npy")
+    traces = np.load("../../Traces/AES_5000_fixed_key/traces.npy")
     traces = map_to_0_255(traces)
     traces = traces[start:l]
-    plaintext = np.load("../../Traces/AES_5000_varibale_key/p.npy")
+    plaintext = np.load("../../Traces/AES_5000_fixed_key/plaintext.npy")
     plaintext = plaintext.astype(np.uint16)
     plaintext = plaintext[start:l]
-    key =np.load("../../Traces/AES_5000_varibale_key/k.npy")
+    key =np.load("../../Traces/AES_5000_fixed_key/key.npy")
     key = key.astype(np.uint16)
     key = key[start:l]
     labels = var_labels(key, plaintext)
@@ -293,12 +293,12 @@ if __name__ == "__main__":
     # secret_key = [label1[f"k_{i}"][0] for i in range(16)]
     # key_distribution = []
     # secret_key, key_distribution = attack(trace1, label1, models)
-    for i in range(1000):
+    for i in range(5000):
         traces, labels = get_traces2(settings, start=i, l=i+1)
         # traces, labels = get_traces(settings, start=5, l=6)
         k, d = attack(traces, labels, models)
 
-        print(k)
+        print(",".join([hex(x) for x in k]))
         max_indices = np.argmax(d, axis=1)
 
         for i, max_index in enumerate(max_indices):

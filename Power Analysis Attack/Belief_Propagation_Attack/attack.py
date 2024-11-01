@@ -161,8 +161,8 @@ def get_traces(settings, start, l):
     # rout = f_database["metadata"]["masks"][I, 17].astype(np.uint16)
     # labels = var_labels(key, plaintext, masks, rin, rout)
     #!!!!
-    traces = np.load("./sample/traces.npy")
-    labels = load_dict("./sample/labels.pkl")
+    traces = np.load("/Users/zhouhuizhen/Myhub/SCA_Traces/BP/traces.npy")
+    labels = load_dict("/Users/zhouhuizhen/Myhub/SCA_Traces/BP/labels.pkl")
 
     return traces, labels
 
@@ -278,10 +278,10 @@ def run_attacks_eval(settings, models):
     """Return the list of the rank of the true key for each attack."""
     # Offset in traces to no attack the training traces
     #traces, labels = get_traces(settings, start=settings.profile, l=settings.attacks)
-    traces = np.load("./sample/traces.npy")
+    traces = np.load("/Users/zhouhuizhen/Myhub/SCA_Traces/BP/traces.npy")
     traces = traces[0:settings.attacks]
 
-    labels = load_dict("./sample/labels.pkl")
+    labels = load_dict("/Users/zhouhuizhen/Myhub/SCA_Traces/BP/labels.pkl")
     labels['k_0'] = labels['k_0'][0:settings.attacks]
 
     return 2**np.array(list(tqdm(map(
