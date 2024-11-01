@@ -35,14 +35,14 @@ def hamming_weight(n):
 
 
 
-# key = np.load("../Traces/AES_fixed_key_firmware/key.npy")
-# traces = np.load("../Traces/AES_fixed_key_firmware/traces.npy")
-# plaintext = np.load("../Traces/AES_fixed_key_firmware/plaintext.npy")
+key = np.load("../Traces/AES_fixed_key_firmware/key.npy")
+traces = np.load("../Traces/AES_fixed_key_firmware/traces.npy")
+plaintext = np.load("../Traces/AES_fixed_key_firmware/plaintext.npy")
 
 
-traces = np.load("../Traces/FPGA_5000_fixed_key/traces.npy")
-plaintext = np.load("../Traces/FPGA_5000_fixed_key/plaintext.npy")
-key = np.load("../Traces/FPGA_5000_fixed_key/key.npy")
+# traces = np.load("../Traces/FPGA_5000_fixed_key/traces.npy")
+# plaintext = np.load("../Traces/FPGA_5000_fixed_key/plaintext.npy")
+# key = np.load("../Traces/FPGA_5000_fixed_key/key.npy")
 
 trace_cnt = len(traces)
 points_cnt = len(traces[0])
@@ -54,6 +54,7 @@ for n in range(0, 256):
     HW.append(hamming_weight(n))
 
 
+
 print("correct key:")
 print(key[0])
 guess_key = []
@@ -62,20 +63,24 @@ guess_key = []
 for attack_index in range(16):
     coefficient = -1
     guess_key = []
+
+    hyp = [[] for _ in range(256)]
+
     for i in range(256):
+        hyp[i] = np.zeros(trace_cnt)
+        for j in range(trace_cnt):
+            sbox_hyp = aes_internal(plaintext[j][attack_index], i)
+            hyp[i][j] = HW[sbox_hyp]
 
-        # hyp = Sbox(key^plaintext)
-        hyp = [[] for _ in range(256)]
-        for i in range(256):
-            hyp[i] = np.zeros(trace_cnt)
-            for j in range(trace_cnt):
-                sbox_hyp = aes_internal(plaintext[j][attack_index], i)
-                hyp[i][j] = HW[sbox_hyp]
-
+    for i in range(256):
         tmp = []
-
         for pj in range(0, points_cnt):
             tmp.append(abs(np.corrcoef(hyp[i], traces[pj])[0, 1]))
-        cpa_data = max(coefficient, max(tmp))
+        coefficient = max(coefficient, max(tmp))
         # print(max(tmp))
         guess_key.append(max(tmp))
+    k = np.argmax(guess_key)
+    guess_key.append(k)
+    print(k)
+
+print(guess_key)

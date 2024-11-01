@@ -57,7 +57,7 @@ def CPA_single_byte(traces, plaintext, attack_index):
 
         for pj in range(0, points_cnt):
             tmp.append(abs(np.corrcoef(hyp[i], traces[pj])[0, 1]))
-        cpa_data = max(coefficient, max(tmp))
+        coefficient = max(coefficient, max(tmp))
         # print(max(tmp))
         guess_key.append(max(tmp))
 
