@@ -27,9 +27,17 @@ def cov(x, y):
     # Note that var(x) = cov(x, x)
     return np.cov(x, y)[0][1]
 
-tempTraces = np.load("..\\Traces\\FPGA_5000_fixed_key\\traces.npy")
-tempPText  = np.load("..\\Traces\\FPGA_5000_fixed_key\\plaintext.npy")
-tempKey    = np.load("..\\Traces\\FPGA_5000_fixed_key\\key.npy")
+
+attack_index = 1
+# tempTraces = np.load("../Traces/FPGA_5000_fixed_key/traces.npy")
+# tempPText  = np.load("../Traces/FPGA_5000_fixed_key/plaintext.npy")
+# tempKey    = np.load("../Traces/FPGA_5000_fixed_key/key.npy")
+
+
+tempTraces = np.load("../Traces/AES_fixed_key_firmware/traces.npy")
+tempPText  = np.load("../Traces/AES_fixed_key_firmware/plaintext.npy")
+tempKey    = np.load("../Traces/AES_fixed_key_firmware/key.npy")
+
 
 # tempTraces = tempTraces[:3000]
 # tempPText = tempPText[:3000]
@@ -39,7 +47,6 @@ tempKey    = np.load("..\\Traces\\FPGA_5000_fixed_key\\key.npy")
 # tempPText  = np.load("..\\Traces\\Firmware_aes_vari\\plaintext.npy")
 # tempKey    = np.load("..\\Traces\\Firmware_aes_vari\\key.npy")
 
-attack_index = 0
 
 tempSbox = [sbox[tempPText[i][attack_index] ^ tempKey[i][attack_index]] for i in range(len(tempPText))]
 tempHW   = [hw[s] for s in tempSbox]
@@ -88,9 +95,14 @@ for HW in range(9):
 
 
 
-atkTraces = np.load("..\\Traces\\FPGA_5000_fixed_key\\traces.npy")
-atkPText  = np.load("..\\Traces\\FPGA_5000_fixed_key\\plaintext.npy")
-atkKey    = np.load("..\\Traces\\FPGA_5000_fixed_key\\key.npy")
+# atkTraces = np.load("../Traces/FPGA_5000_fixed_key/traces.npy")
+# atkPText = np.load("../Traces/FPGA_5000_fixed_key/plaintext.npy")
+# atkKey = np.load("../Traces/FPGA_5000_fixed_key/key.npy")
+
+
+atkPText = np.load("../Traces/AES_fixed_key_firmware/plaintext.npy")
+atkTraces = np.load("../Traces/AES_fixed_key_firmware/traces.npy")
+atkKey = np.load("../Traces/AES_fixed_key_firmware/key.npy")
 
 
 # atkTraces = atkTraces[4000:4100]
@@ -103,6 +115,7 @@ atkKey    = np.load("..\\Traces\\FPGA_5000_fixed_key\\key.npy")
 print(atkKey[0])
 # print(atkKey[2])
 atkcnt = 500
+
 
 P_k = np.zeros(256)
 for j in range(atkcnt):

@@ -63,9 +63,13 @@ def DPA_Single_byte(index, textin_array, traces):
 
 
 if __name__=="__main__":
-    key = np.load("..\\Traces\\AES_fixed_key_firmware\\key.npy")
-    traces = np.load("..\\Traces\\AES_fixed_key_firmware\\traces.npy")
-    plaintext = np.load("..\\Traces\\AES_fixed_key_firmware\\plaintext.npy")
+    # key = np.load("../Traces/AES_fixed_key_firmware/key.npy")
+    # traces = np.load("../Traces/AES_fixed_key_firmware/traces.npy")
+    # plaintext = np.load("../Traces/AES_fixed_key_firmware/plaintext.npy")
+
+    traces = np.load("../Traces/FPGA_5000_fixed_key/traces.npy")
+    plaintext = np.load("../Traces/FPGA_5000_fixed_key/plaintext.npy")
+    key = np.load("../Traces/FPGA_5000_fixed_key/key.npy")
 
     print("correct key:")
     print(key[0])

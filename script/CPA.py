@@ -66,9 +66,9 @@ def CPA_single_byte(traces, plaintext, attack_index):
 
 
 if __name__=="__main__":
-    key = np.load("Traces/AES_fixed_key_firmware/key.npy")
-    traces = np.load("Traces/AES_fixed_key_firmware/traces.npy")
-    plaintext = np.load("Traces/AES_fixed_key_firmware/plaintext.npy")
+    key = np.load("../Traces/AES_fixed_key_firmware/key.npy")
+    traces = np.load("../Traces/AES_fixed_key_firmware/traces.npy")
+    plaintext = np.load("../Traces/AES_fixed_key_firmware/plaintext.npy")
 
     print("correct key:")
     print(key[0])
